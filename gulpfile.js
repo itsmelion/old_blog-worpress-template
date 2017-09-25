@@ -6,6 +6,12 @@ const dist = './build';
 
 const vendors = [
   "./node_modules/jquery/dist/jquery.js",
+  "./node_modules/pace-js/pace.js",
+  "./node_modules/tether/dist/js/tether.js",
+  "./node_modules/tether-drop/dist/js/drop.js",
+  "./node_modules/tether-tooltip/dist/js/tooltip.js",
+  "./node_modules/slick-carousel/slick/slick.js",
+  "./node_modules/photoswipe/dist/photoswipe-ui-default.js",
   "./node_modules/gsap/TweenLite.js",
   source + '/scripts/vendors/*.js'
 ];
@@ -74,7 +80,7 @@ gulp.task('serve', () => {
   runsequence('build', () => {
     browserSync.init({
       proxy: appURL,
-      notify: true,
+      notify: false,
       open: true,
       port: 9000
     });
@@ -87,7 +93,9 @@ gulp.task('serve', () => {
 
     gulp.watch(source + '/images/**/*', ['images']);
     gulp.watch(source + '/scss/**/*.scss', ['coreStyles', 'asyncStyles']);
-    gulp.watch(source + '/scripts/**/*.js', ['scripts', 'vendors', 'lazy']);
+    gulp.watch(source + '/scripts/core/**/*.js', ['scripts']);
+    gulp.watch(source + '/scripts/vendors/**/*.js', ['vendors']);
+    gulp.watch(source + '/scripts/lazy/**/*.js', ['lazy']);
   });
 });
 

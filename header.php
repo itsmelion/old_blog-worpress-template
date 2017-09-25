@@ -63,7 +63,7 @@ brazil, brasil, empresa, software" />
   <?php wp_head(); ?>
   
 <style>
-  a, h1{
+a, h1{
   color: <?php the_field('main-color', 'option'); ?>;
 }
 a:hover{
@@ -82,25 +82,39 @@ a:hover{
   background-color: <?php the_field('main-color-dark', 'option'); ?>;
   background-color: rgba(<?php the_field('main-color-dark', 'option'); ?>, .9);
 }
-.menu-item-has-children::after{
-  background: url('<?php echo get_bloginfo('template_url') ?>/build/images/arrow.svg');
-}
 </style>
 </head>
 <body <?php body_class('layout-column-fill-stretch'); ?> >
 
-<nav class="layout-row-forcenowrap-between main-menu flex" id="nav">
+<nav class="layout-row-forcenowrap-between-center main-menu flex" id="nav" role="navigation">
 
   <li class="flex menu-logo">
     <a title="<?php bloginfo( 'description' ); ?>" href="<?php echo home_url();?>" class="hide-sm show-lg">
-    <img src="<?php echo get_bloginfo('template_url') ?>/build/images/logotipo.svg" alt="<?php bloginfo( 'name' ); ?>"/>
+    <img src="<?php echo get_bloginfo('template_url') ?>/build/images/logo.png" alt="<?php bloginfo( 'name' ); ?>"/>
     </a>
     <a title="<?php bloginfo( 'description' ); ?>" href="<?php echo home_url();?>" class="hide-lg show-sm">
     <img src="<?php echo get_bloginfo('template_url') ?>/build/images/logo.svg" alt="<?php bloginfo( 'name' ); ?>"/>
     </a>
   </li>
   
-  <nav class="nav" role="navigation">
-    <?php html5blank_nav(); ?>
-  </nav>
+  <?php
+    $args = array(
+      'menu'            => '',
+      'container'       => false,
+      'container_id'    => '',
+      'menu_class'      => 'menu flex',
+      'menu_id'         => '',
+      'echo'            => true,
+      'fallback_cb'     => 'wp_page_menu',
+      'before'          => '',
+      'after'           => '',
+      'link_before'     => '',
+      'link_after'      => '',
+      'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+      'depth'           => 2,
+      'walker'          => ''
+      );
+    wp_nav_menu( $args );
+  ?>
+  
 </nav>

@@ -1,7 +1,15 @@
-header{
+header {
 	background-size: cover;
 	background-position: center;
-	@media screen and (max-width: 48em){
+	@media screen and (max-width: 48em) {
 		background-attachment: scroll;
 	}
+}
+
+.arrow-bottom {
+	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC") no-repeat scroll 0 0 transparent
+}
+
+.arrow-right {
+	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAJUlEQVR42mNgAILy8vL/DLgASBKnApgkVgXIkhgKiNKJ005s4gDLbCZBiSxfygAAAABJRU5ErkJggg==") no-repeat scroll 0 0 transparent
 }

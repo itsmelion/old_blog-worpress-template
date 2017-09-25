@@ -73,44 +73,51 @@ register_nav_menu( 'main-menu', __( 'Your sites main menu', 'menu' ) );
 if ( ! isset( $content_width ) ) $content_width = 1024;
 
 
+function disable_wp_emojicons() {
+    
+    // all actions related to emojis
+    remove_action( 'admin_print_styles', 'print_emoji_styles' );
+    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+    remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+    remove_action( 'wp_print_styles', 'print_emoji_styles' );
+    remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+    remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+    remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+
+    // filter to remove TinyMCE emojis
+    add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
+    add_filter( 'emoji_svg_url', '__return_false' );
+}
+add_action( 'init', 'disable_wp_emojicons' );
+
+function disable_emojicons_tinymce( $plugins ) {
+    if ( is_array( $plugins ) ) {
+        return array_diff( $plugins, array( 'wpemoji' ) );
+    } else {
+        return array();
+    }
+}
+
 /******************************************************************************\
 	Scripts and Styles
 \******************************************************************************/
+if (!is_admin()) {
+    wp_deregister_script('jquery');                                     // De-Register jQuery
+    wp_register_script('jquery', '', '', '', true);                     // Register as 'empty', because we manually insert our script in header.php
+}
 // Load HTML5 Blank scripts (header.php)
 function html5blank_header_scripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
-        if (HTML5_DEBUG) {
-            // jQuery
-            wp_deregister_script('jquery');
-            wp_register_script('jquery', get_template_directory_uri() . '/bower_components/jquery/dist/jquery.js', array(), '1.11.1');
+        wp_enqueue_style( 'core', get_stylesheet_uri(), array(), '1.0' );
 
-            // Conditionizr
-            wp_register_script('conditionizr', get_template_directory_uri() . '/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0');
-
-            // Modernizr
-            wp_register_script('modernizr', get_template_directory_uri() . '/bower_components/modernizr/modernizr.js', array(), '2.8.3');
-
-            // Custom scripts
-            wp_register_script(
-                'html5blankscripts',
-                get_template_directory_uri() . '/js/scripts.js',
-                array(
-                    'conditionizr',
-                    'modernizr',
-                    'jquery'),
-                '1.0.0');
-
-            // Enqueue Scripts
-            wp_enqueue_script('html5blankscripts');
-
-        // If production
-        } else {
-            // Scripts minify
-            wp_register_script('html5blankscripts-min', get_template_directory_uri() . '/js/scripts.min.js', array(), '1.0.0');
-            // Enqueue Scripts
-            wp_enqueue_script('html5blankscripts-min');
-        }
+        wp_register_script('vendors', get_template_directory_uri() . '/build/scripts/vendors.js', array(), '1.0.0', true);
+        wp_register_script('app', get_template_directory_uri() . '/build/scripts/app.js', array(), '1.0.0', true);
+        wp_register_script('lazy', get_template_directory_uri() . '/build/scripts/lazy.js', array(), '1.0.0', true);
+        // Enqueue Scripts
+        wp_enqueue_script('vendors');
+        wp_enqueue_script('app');
+        wp_enqueue_script('lazy');
     }
 }
 
@@ -119,7 +126,7 @@ function html5blank_conditional_scripts()
 {
     if (is_page('pagenamehere')) {
         // Conditional script(s)
-        wp_register_script('scriptname', get_template_directory_uri() . '/js/scriptname.js', array('jquery'), '1.0.0');
+        wp_register_script('scriptname', get_template_directory_uri() . 'build/scripts/scriptname.js', array('jquery'), '1.0.0');
         wp_enqueue_script('scriptname');
     }
 }
@@ -128,12 +135,12 @@ function html5blank_conditional_scripts()
  * Enqueue theme scripts
  * @return void
  */
-function theme_enqueue_scripts() {
-	wp_enqueue_style( 'sense-styles', get_stylesheet_uri(), array(), '1.0' );
-	wp_enqueue_script( 'jquery' );
-    wp_enqueue_script( 'default-scripts', get_template_directory_uri() . '/build/scripts/app.js', array(), '1.0', true );
-}
-add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts' );
+// function theme_enqueue_scripts() {
+// 	wp_enqueue_style( 'sense-styles', get_stylesheet_uri(), array(), '1.0' );
+// 	wp_enqueue_script( 'jquery' );
+//     wp_enqueue_script( 'default-scripts', get_template_directory_uri() . '/build/scripts/app.js', array(), '1.0', true );
+// }
+// add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts' );
 
 
 /******************************************************************************\
@@ -165,10 +172,10 @@ function html5blank_nav()
     array(
         'theme_location'  => 'header-menu',
         'menu'            => '',
-        'container'       => 'div',
+        'container'       => false,
         'container_class' => 'menu-{menu slug}-container',
         'container_id'    => '',
-        'menu_class'      => 'menu',
+        'menu_class'      => 'menu flex',
         'menu_id'         => '',
         'echo'            => true,
         'fallback_cb'     => 'wp_page_menu',
@@ -176,8 +183,8 @@ function html5blank_nav()
         'after'           => '',
         'link_before'     => '',
         'link_after'      => '',
-        'items_wrap'      => '<ul>%3$s</ul>',
-        'depth'           => 0,
+        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+        'depth'           => 1,
         'walker'          => ''
         )
     );
@@ -186,7 +193,9 @@ function html5blank_nav()
 // Remove the <div> surrounding the dynamic navigation to cleanup markup
 function my_wp_nav_menu_args($args = '')
 {
-    $args['container'] = false;
+    $defaults = array( 'menu' => '', 'container' => false, 'container_class' => '', 'container_id' => '', 'menu_class' => 'menu', 'menu_id' => '',
+    'echo' => true, 'fallback_cb' => 'wp_page_menu', 'before' => '', 'after' => '', 'link_before' => '', 'link_after' => '', 'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>', 'item_spacing' => 'preserve',
+    'depth' => 0, 'walker' => '', 'theme_location' => '' );
     return $args;
 }
 
