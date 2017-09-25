@@ -1,0 +1,31 @@
+a,
+h1 {
+  color: <?php the_field('main-color', 'option');
+  ?>;
+}
+
+a:hover {
+  color: <?php the_field('main-color-dark', 'option');
+  ?>;
+}
+
+::selection {
+  background: <?php the_field('main-color', 'option');
+  ?>;
+  color: white;
+}
+
+::-moz-selection {
+  background: <?php the_field('main-color', 'option');
+  ?>;
+  color: white;
+}
+
+nav {
+  background-color: rgba(<?php the_field('main-color-dark', 'option');
+  ?>, .9);
+}
+
+.menu-item-has-children::after {
+  background: url('<?php echo get_bloginfo('template_url') ?>/images/arrow.svg">');
+}

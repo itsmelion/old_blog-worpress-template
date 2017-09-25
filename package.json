@@ -1,0 +1,76 @@
+{
+  "name": "alia-theme",
+  "version": "1.0.0",
+  "description": "Theme developed by Alia at Intuitech",
+  "main": "scripts/scripts.js",
+  "private": true,
+  "engines": {
+    "node": ">=8.5.0"
+  },
+  "scripts": {
+    "start": "gulp serve",
+    "prod": "gulp serve --production",
+    "compile": "gulp build --production && gulp gzip && gulp zip && gulp buildFiles && gulp buildZip"
+  },
+  "dependencies": {
+    "flamework": "^1.1.0",
+    "gsap": "latest",
+    "lazyloadjs": "latest",
+    "pace-js": "latest",
+    "photoswipe": "latest",
+    "popper.js": "latest",
+    "slick-carousel": "latest",
+    "vanilla-lazyload": "latest"
+  },
+  "devDependencies": {
+    "@cedx/gulp-php-minify": "latest",
+    "autoprefixer": "latest",
+    "babel-core": "latest",
+    "babel-generator": "latest",
+    "babel-preset-env": "latest",
+    "babelify": "latest",
+    "browser-sync": "latest",
+    "browserify": "latest",
+    "css-mqpacker": "latest",
+    "cssnano": "latest",
+    "del": "latest",
+    "file-entry-cache": "latest",
+    "gulp": "latest",
+    "gulp-babel": "latest",
+    "gulp-cache": "latest",
+    "gulp-concat": "latest",
+    "gulp-eslint": "latest",
+    "gulp-gzip": "latest",
+    "gulp-htmlmin": "latest",
+    "gulp-if": "latest",
+    "gulp-imagemin": "latest",
+    "gulp-newer": "latest",
+    "gulp-notify": "latest",
+    "gulp-postcss": "latest",
+    "gulp-rename": "latest",
+    "gulp-rev": "latest",
+    "gulp-sass": "latest",
+    "gulp-size": "latest",
+    "gulp-sourcemaps": "latest",
+    "gulp-uglify": "latest",
+    "html-minifier": "latest",
+    "merge": "latest",
+    "run-sequence": "latest",
+    "yargs": "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/alia-code/wordpress-theme.git"
+  },
+  "keywords": [
+    "Alia",
+    "intuitech",
+    "wordpress theme"
+  ],
+  "author": "Christhopher Lion",
+  "license": "CC",
+  "bugs": {
+    "url": "https://gitlab.com/alia-code/wordpress-theme/issues"
+  },
+  "homepage": "https://gitlab.com/alia-code/wordpress-theme#README"
+}

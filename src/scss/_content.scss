@@ -1,0 +1,21 @@
+// FRONT PAGE
+#front-page {
+  position: relative;
+  background: #dc71e8;
+  background: -moz-linear-gradient(-45deg, #dc71e8 0%, #c85ec7 45%, #6bd9f4 100%);
+  background: -webkit-linear-gradient(-45deg, #dc71e8 0%, #c85ec7 45%, #6bd9f4 100%);
+  background: linear-gradient(135deg, #dc71e8 0%, #c85ec7 45%, #6bd9f4 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dc71e8', endColorstr='#6bd9f4', GradientType=1);
+  font-weight: 100;
+  text-transform: none;
+  color: white;
+  min-height: 60vh;
+  >* {
+    z-index: 2;
+  }
+}
+
+.post {
+  border: 1pt dashed #cccccc;
+  padding: 1rem;
+}

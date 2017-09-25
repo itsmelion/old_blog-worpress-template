@@ -1,0 +1,7 @@
+header{
+	background-size: cover;
+	background-position: center;
+	@media screen and (max-width: 48em){
+		background-attachment: scroll;
+	}
+}

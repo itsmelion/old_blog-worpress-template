@@ -1,0 +1,94 @@
+// Variables
+$base-font: sans-serif;
+$base-line-height: 1.4;
+$base-font-size: 100%;
+// Font size mixin for REM output with PX fallback
+@mixin font-size($size) {
+    font-size: $size * $base-font-size;
+    font-size: #{$size}rem;
+}
+
+
+/******************************************************************************\
+	Standard font styling
+\******************************************************************************/
+
+body {
+    font-family: $base-font;
+    line-height: $base-line-height;
+    font-weight: lighter;
+}
+
+em,
+i {
+    font-style: italic;
+    line-height: inherit;
+}
+
+strong,
+b {
+    font-weight: bold;
+    line-height: inherit;
+}
+
+blockquote {
+    position: relative;
+    &:before {
+        display: block;
+        float: left;
+        content: "\"";
+        @include font-size(2.5);
+        margin: 0 15px 15px 0;
+    }
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+h5,
+h6 {
+    font-family: $base-font;
+    line-height: 1.2;
+    margin: 0;
+    font-weight: bolder;
+}
+
+h1 {
+    @include font-size(2.5);
+    font-size: 4vw;
+    letter-spacing: -.05em;
+    @media screen and (max-width: 840px) {
+        font-size: 8vw;
+    }
+}
+
+h2 {
+    @include font-size(1.8);
+}
+
+h3 {
+    @include font-size(1.1);
+    text-transform: uppercase;
+}
+
+h4,
+h5,
+h6 {
+    @include font-size(1);
+}
+
+h2,
+h3 {
+    page-break-after: avoid;
+}
+
+p,
+h2,
+h3 {
+    orphans: 3;
+    widows: 3;
+}
