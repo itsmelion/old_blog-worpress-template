@@ -6,20 +6,14 @@
 
 	<div class="layout-row-between-nowrap">
 
-		<ul class="footer-links">
-			<li>SAC</li>
-			<li><a href="<?php echo home_url();?>/#">Link to somewhere</a></li>
-			<li><a href="<?php echo home_url();?>/#">Link to somewhere</a></li>
-			<li><a href="<?php echo home_url();?>/#">Link to somewhere</a></li>
-		</ul>
-
-		<ul class="footer-links">
-			<li>HELP</li>
-			<li><a href="<?php echo home_url();?>/#">Link to somewhere</a></li>
-			<li><a href="<?php echo home_url();?>/#">Link to somewhere</a></li>
-			<li><a href="<?php echo home_url();?>/#">Link to somewhere</a></li>
-			<li><a href="<?php echo home_url();?>/#">Link to somewhere</a></li>
-		</ul>
+		<?php while( have_rows('footer_list', 'option') ): the_row(); ?>
+			<ul class="footer-links">
+				<li><?php echo the_sub_field('list_title');?></li>
+				<?php while( have_rows('list_items', 'option') ): the_row(); ?>
+					<li><a href="<?php echo the_sub_field('url');?>"><?php echo the_sub_field('text');?></a></li>
+				<?php endwhile; ?>
+			</ul>
+		<?php endwhile; ?>
 
 		<ul class="footer-links text-right">
 			<li>SOCIAL</li>

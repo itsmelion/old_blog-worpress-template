@@ -1,4 +1,4 @@
-<?php /* Template Name: Atletas */ ?>
+<?php /* Template Name: Region */ ?>
 
 <?php get_header(); ?>
 

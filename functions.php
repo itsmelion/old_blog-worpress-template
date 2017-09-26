@@ -1,33 +1,45 @@
 <?php
 if( function_exists('acf_add_options_page') ) {
-	
-	acf_add_options_page(array(
-		'page_title' 	=> 'Configurações Gerais',
-		'menu_title'	=> 'General Settings',
-		'menu_slug' 	=> 'general-settings',
+    
+    acf_add_options_page(array(
+        'page_title' 	=> 'Header Settings',
+        'menu_title'	=> 'Header',
+		'menu_slug' 	=> 'header-settings',
 		'capability'	=> 'edit_posts',
-		'redirect'		=> false
+		'redirect'		=> false,
+        'menu_icon'     => 'dashicons-slides'
+    ));
+    
+    acf_add_options_sub_page(array(
+        'page_title' 	=> 'Call to Actions',
+		'menu_title'	=> 'CTA Tweaks',
+		'parent_slug'	=> 'header-settings',
 	));
-	
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Theme Header Settings',
-		'menu_title'	=> 'Headings',
-		'parent_slug'	=> 'general-settings',
-	));
-	
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Theme Footer Settings',
-		'menu_title'	=> 'Footer',
-		'parent_slug'	=> 'general-settings',
-	));
-	
+    
+    acf_add_options_page(array(
+        'page_title' 	=> 'Footer settings',
+        'menu_title'	=> 'Footer',
+        'menu_slug' 	=> 'footer-settings',
+        'capability'	=> 'edit_posts',
+        'redirect'		=> false,
+        'menu_icon'     => 'dashicons-welcome-widgets-menus'
+    ));
+    
+    acf_add_options_page(array(
+        'page_title' 	=> 'General Settings',
+        'menu_title'	=> 'General Settings',
+        'menu_slug' 	=> 'general-settings',
+        'capability'	=> 'edit_posts',
+        'redirect'		=> false,
+        'menu_icon'     => 'dashicons-admin-multisite'
+    ));
 }
 
 /******************************************************************************\
 	Theme support, standard settings, menus and widgets
 \******************************************************************************/
 
-add_theme_support( 'post-formats', array( 'image', 'quote', 'status', 'link' ) );
+// add_theme_support( 'post-formats', array( 'image', 'quote', 'status', 'link' ) );
 add_theme_support( 'post-thumbnails' );
 // add_theme_support( 'automatic-feed-links' );
 load_theme_textdomain('html5blank', get_template_directory() . '/languages');
@@ -415,7 +427,8 @@ add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditi
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
-add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
+add_action('init', 'post_jobOffer');
+add_action('init', 'post_pricing');
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
 
@@ -506,6 +519,82 @@ function create_post_type_html5()
             'excerpt',
             'thumbnail'
         ), // Go to Dashboard Custom HTML5 Blank post for supports
+        'can_export' => true, // Allows export in Tools > Export
+        'taxonomies' => array(
+            'post_tag',
+            'category'
+        ) // Add Category and Post Tags support
+    ));
+}
+
+function post_jobOffer()
+{
+    register_taxonomy_for_object_type('category', 'job-offer'); // Register Taxonomies for Category
+    register_taxonomy_for_object_type('post_tag', 'job-offer');
+    register_post_type('job-offer', // Register Custom Post Type
+        array(
+        'labels' => array(
+            'name' => __('Job Offers', 'html5blank'), // Rename these to suit
+            'singular_name' => __('Job Offer', 'html5blank'),
+            'add_new' => __('New job offer', 'html5blank'),
+            'add_new_item' => __('Add offer', 'html5blank'),
+            'edit' => __('Edit offer', 'html5blank'),
+            'edit_item' => __('Edit job offer', 'html5blank'),
+            'new_item' => __('New Offer', 'html5blank'),
+            'view' => __('See offer', 'html5blank'),
+            'view_item' => __('See Offer', 'html5blank'),
+            'search_items' => __('Search for jobs', 'html5blank'),
+            'not_found' => __('Could not find any offer yet', 'html5blank'),
+            'not_found_in_trash' => __('No offer in the bin', 'html5blank')
+        ),
+        'public' => true,
+        'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+        'has_archive' => true,
+        'supports' => array(
+            'title',
+            'editor',
+            'excerpt',
+            'thumbnail'
+        ), // Go to Dashboard Custom HTML5 Blank post for supports
+        'menu_icon'   => 'dashicons-pressthis',
+        'can_export' => true, // Allows export in Tools > Export
+        'taxonomies' => array(
+            'post_tag',
+            'category'
+        ) // Add Category and Post Tags support
+    ));
+}
+
+function post_pricing()
+{
+    register_taxonomy_for_object_type('category', 'pricing'); // Register Taxonomies for Category
+    register_taxonomy_for_object_type('post_tag', 'pricing');
+    register_post_type('pricing', // Register Custom Post Type
+        array(
+        'labels' => array(
+            'name' => __('Pricings', 'html5blank'), // Rename these to suit
+            'singular_name' => __('Pricing', 'html5blank'),
+            'add_new' => __('New Plan', 'html5blank'),
+            'add_new_item' => __('New plan', 'html5blank'),
+            'edit' => __('Edit Plan', 'html5blank'),
+            'edit_item' => __('Edit plan', 'html5blank'),
+            'new_item' => __('New plan', 'html5blank'),
+            'view' => __('See plan', 'html5blank'),
+            'view_item' => __('See plan', 'html5blank'),
+            'search_items' => __('Find plans', 'html5blank'),
+            'not_found' => __('There is no plan found', 'html5blank'),
+            'not_found_in_trash' => __('No deleted plan', 'html5blank')
+        ),
+        'public' => true,
+        'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+        'has_archive' => true,
+        'supports' => array(
+            'title',
+            'editor',
+            'excerpt',
+            'thumbnail'
+        ), // Go to Dashboard Custom HTML5 Blank post for supports
+        'menu_icon'   => 'dashicons-tag',
         'can_export' => true, // Allows export in Tools > Export
         'taxonomies' => array(
             'post_tag',
