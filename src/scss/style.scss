@@ -1,5 +1,7 @@
-@import "vendor/pace-theme-flash";
 @import "../../node_modules/flamework/flamework.scss";
+@import "vendor/pace-theme-flash";
+@import "vendor/drop";
+@import "vendor/slick";
 @import "base";
 @import "typography";
 @import "components";
@@ -7,4 +9,3 @@
 @import "header";
 @import "footer";
 @import "content";
-@import "vendor/drop";

@@ -16,6 +16,42 @@
 }
 
 .post {
-  border: 1pt dashed #cccccc;
   padding: 1rem;
+}
+
+.dual {
+  // flex: 0 1 50%;
+  article {
+    width: 50%;
+    padding: 20pt;
+  }
+  .dual-img-container {
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+.icon-section {
+  .icon-item {
+    margin: 1rem;
+    padding: .5rem;
+    img {
+      max-width: 128pt;
+    }
+  }
+}
+
+.caroussel-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  .slick-container {
+    position: relative;
+    width: 100%;
+  }
+  .job-tips {
+    width: auto;
+    margin: 1rem;
+    @include shadow;
+  }
 }

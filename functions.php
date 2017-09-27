@@ -428,6 +428,7 @@ add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comment
 add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
 add_action('init', 'post_jobOffer');
+add_action('init', 'post_tips');
 add_action('init', 'post_pricing');
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
@@ -564,6 +565,60 @@ function post_jobOffer()
         ) // Add Category and Post Tags support
     ));
 }
+
+function post_tips()
+{
+    register_taxonomy_for_object_type('category', 'job-tips'); // Register Taxonomies for Category
+    register_taxonomy_for_object_type('post_tag', 'job-tips');
+    register_post_type('job-tips', // Register Custom Post Type
+        array(
+        'labels' => array(
+            'name' => __('Career Tips', 'html5blank'), // Rename these to suit
+            'singular_name' => __('Career Tip', 'html5blank'),
+            'add_new' => __('New Tip', 'html5blank'),
+            'add_new_item' => __('Add tip', 'html5blank'),
+            'edit' => __('Edit tip', 'html5blank'),
+            'edit_item' => __('Edit tip', 'html5blank'),
+            'new_item' => __('New tip', 'html5blank'),
+            'view' => __('See tip', 'html5blank'),
+            'view_item' => __('See tip', 'html5blank'),
+            'search_items' => __('Find more tips', 'html5blank'),
+            'not_found' => __('We have no tips to display by now..', 'html5blank'),
+            'not_found_in_trash' => __('No tips wasted! :)', 'html5blank'),
+            'rewrite' => array('slug' => 'job-tips')
+        ),
+        'public' => true,
+        'publicly_queryable'  => true,
+        'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+        'has_archive' => true,
+        'supports' => array(
+            'title',
+            'editor',
+            'excerpt',
+            'thumbnail'
+        ), // Go to Dashboard Custom HTML5 Blank post for supports
+        'menu_icon'   => 'dashicons-pressthis',
+        'can_export' => true, // Allows export in Tools > Export
+        'taxonomies' => array(
+            'post_tag',
+            'category'
+        ) // Add Category and Post Tags support
+    ));
+}
+function post_auto_cat( $post_ID ) {
+    $post_type = 'job-tips';
+    $cat_id = 123; // Your reviews category id (for example: 123)
+    $post_categories=array($cat_id);
+
+    // check if current post type is movie review
+    if(get_post_type($post_ID)==$post_type) {
+        // assign a category for this post by default
+        wp_set_post_categories( $post_ID, $post_categories );
+    }
+
+   return $post_ID;
+}
+add_action( 'publish_post', 'post_auto_cat' );
 
 function post_pricing()
 {

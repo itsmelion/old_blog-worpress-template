@@ -26,43 +26,46 @@ if( have_rows('sections') ):
 		    // check current row layout
         if( get_row_layout() == 'Article | Image' ): ?>
 
-          <section class="layout-row <?php the_sub_field('reverse') ?>">
-            <article>
-              <h1><?php the_sub_field('title') ?></h1>
-              <p><?php the_sub_field('paragraph') ?></p>
-              <a href="<?php the_sub_field('call_to_action-URL') ?>"><?php the_sub_field('call_to_action-text') ?></a>
+          <section class="layout-row-nowrap-<?php echo get_sub_field('reverse') ? 'reverse' : '';  ?> dual">
+            <article class="flex layout-column">
+              <h1><?php the_sub_field('title'); ?></h1>
+              <p><?php the_sub_field('paragraph'); ?></p>
+              <a href="<?php the_sub_field('call_to_action-URL'); ?>"><?php the_sub_field('call_to_action-text'); ?></a>
             </article>
-            <div><img src="<?php the_sub_field('image') ?>" /></div>
+            <?php $image = get_sub_field('img'); ?>
+            <div class="dual-img-container"><img class="flex" src="<?php echo $image['url']; ?>" alt="<?php $image['alt']; ?>" /></div>
           </section>
         
         <?php endif;
 
-        if( get_row_layout() == 'items' ):
+        if( get_row_layout() == 'items' ): ?>
           
-          // check if the nested repeater field has rows of data
-          if( have_rows('repeater') ):
+          <section class="layout-column text-center icon-section" style="background: <?php get_sub_field('background_color') ? ''.the_sub_field('background_color') : ''.the_sub_field('background_image') ?>">
 
-            echo '<ul>';
+          <?php if (get_sub_field('section_title')) : ?>
+            <h1><?php the_sub_field('section_title') ?></h1>
+          <?php endif;?>
 
-            // loop through the rows of data
-            while ( have_rows('repeater') ) : the_row();
-
-              echo '<li>' . get_sub_field('info_title') . '</li>';
-
-            endwhile;
-
-            echo '</ul>';
-
-          endif;
-
-        endif;
+          <div class="layout-row">
+          <?php if( have_rows('repeater') ):
+            while ( have_rows('repeater') ) : the_row(); ?>
+              <article class="layout-column-center text-center icon-item">
+                <img src="<?php $img = get_sub_field('icon'); echo $img['url'] ?>" />
+                <h3><?php the_sub_field('info_title') ?></h3>
+                <h4><?php the_sub_field('info_description') ?></h4>
+                <p><?php the_sub_field('paragraph') ?></p>
+              </article>
+            <?php endwhile; endif;?>
+          </div>
+          <?php if(get_field('cta-text')): ?>
+          <a href="<?php the_field('cta-url') ?>"><?php the_field('cta-text') ?></a>
+         <?php endif; ?>
+        </section>
+      <?php endif;
 
     endwhile;
 
-else : // no layouts found
+else : endif; ?>
 
-endif;
-
-?>
-
+  <?php get_template_part('loop', 'tips'); ?>
 <?php get_footer(); ?>
