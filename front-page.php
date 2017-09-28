@@ -15,11 +15,11 @@ endif;
 </style>
 
 <header id="front-page" class="layout-column-center flex this-header" role="banner">
-    <div class="layout-row-nowrap-center">
+    <div class="flex layout-row-nowrap-center">
       <img width="120pt" height="auto" src="<?php echo get_template_directory_uri().'/build/images/triangle.svg' ?>">
 		  <h1><?php the_field('hero') ?></h1>
     </div>
-    <div class="ctas">
+    <div class="flex ctas">
       <a class="button" style="background-color: <?php the_field('prime-cta-color') ?>;" href="<?php the_field('prime-cta-url') ?>"><?php the_field('prime-cta-text') ?></a>
       <a class="button" style="background-color: <?php the_field('alt-cta-color') ?>;" href="<?php the_field('alt-cta-url') ?>"><?php the_field('alt-cta-text') ?></a>
     </div>
@@ -28,20 +28,15 @@ endif;
 
 <?php get_template_part('loop'); ?>
 
-<?php
+<?php if( have_rows('sections') ):
 
-// check if the flexible content field has rows of data
-if( have_rows('sections') ):
-
- 	// loop through the rows of data
     while ( have_rows('sections') ) : the_row();
 
-		    // check current row layout
         if( get_row_layout() == 'Article | Image' ): ?>
 
           <section class="layout-row-nowrap-<?php echo get_sub_field('reverse') ? 'reverse' : ''; ?> dual" style="color:<?php echo get_sub_field('font_color_override');  ?>">
             <article class="flex layout-column">
-              <h1><?php the_sub_field('title'); ?></h1>
+              <h2><?php the_sub_field('title'); ?></h2>
               <p><?php the_sub_field('paragraph'); ?></p>
               <a href="<?php the_sub_field('call_to_action-URL'); ?>"><?php the_sub_field('call_to_action-text'); ?></a>
             </article>
@@ -56,7 +51,7 @@ if( have_rows('sections') ):
           <section class="layout-column text-center icon-section" style="background: <?php get_sub_field('background_color') ? ''.the_sub_field('background_color') : ''.the_sub_field('background_image') ?>; color:<?php echo get_sub_field('font_color_override');  ?>">
 
           <?php if (get_sub_field('section_title')) : ?>
-            <h1><?php the_sub_field('section_title') ?></h1>
+            <h2><?php the_sub_field('section_title') ?></h2>
           <?php endif;?>
 
           <div class="layout-row">
