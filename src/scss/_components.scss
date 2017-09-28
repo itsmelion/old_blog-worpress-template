@@ -1,0 +1,20 @@
+.button {
+  user-select: none;
+  outline: none;
+  line-height: 24pt;
+  text-transform: uppercase;
+  letter-spacing: -.5pt;
+  font-weight: 300;
+  font-size: 140%;
+  color: white;
+  padding: 1rem 2rem;
+  display: inline-flex;
+  width: auto;
+  margin: .5rem;
+  background-color: #999;
+  @include transition;
+  &:hover,
+  &:focus {
+    @include shadow;
+  }
+}

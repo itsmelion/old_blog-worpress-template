@@ -33,7 +33,7 @@ while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
 
  	<p><?php esc_html_e( 'Oh, we have no tips at the moment. :/' ); ?></p>
 
- <?php endif; ?>
+ <?php endif; wp_reset_postdata(); ?>
 
 </div>
 </section>

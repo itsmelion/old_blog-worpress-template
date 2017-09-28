@@ -23,7 +23,7 @@
     "tether": "^1.4.0",
     "tether-drop": "^1.4.2",
     "tether-tooltip": "^1.2.0",
-    "vanilla-lazyload": "latest"
+    "vanilla-lazyload": "^10.3.1"
   },
   "devDependencies": {
     "@cedx/gulp-php-minify": "latest",
