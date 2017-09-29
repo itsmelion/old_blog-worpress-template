@@ -82,7 +82,10 @@ gulp.task('serve', () => {
       proxy: appURL,
       notify: false,
       open: true,
-      port: 9000
+      port: 9000,
+      logLevel: "info",
+      logPrefix: project,
+      logConnections: false
     });
 
     gulp.watch([

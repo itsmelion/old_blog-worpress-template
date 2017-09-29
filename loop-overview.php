@@ -1,4 +1,4 @@
-<?php if ( is_singular() ) :?>
+<?php if ( is_singular('destinations') ) :?>
 <?php $image = get_field('hero');?>
 <style>
 	header#post-<?php the_ID(); ?>{

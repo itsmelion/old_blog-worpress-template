@@ -12,6 +12,11 @@ endif;
 .this-header{
   background: url("<?php echo $desktop['sizes']['large']; ?>");
 }
+@media screen and (max-width: 58em){
+  .this-header{
+    background: url("<?php echo $mobile['sizes']['large']; ?>");
+  }
+}
 </style>
 
 <header id="front-page" class="layout-column-center flex this-header" role="banner">
@@ -28,54 +33,9 @@ endif;
 
 <?php get_template_part('loop'); ?>
 
-<?php if( have_rows('sections') ):
+<?php include 'src/components/sections.php'; ?>
 
-    while ( have_rows('sections') ) : the_row();
-
-        if( get_row_layout() == 'Article | Image' ): ?>
-
-          <section class="layout-row-nowrap-<?php echo get_sub_field('reverse') ? 'reverse' : ''; ?> dual" style="color:<?php echo get_sub_field('font_color_override');  ?>">
-            <article class="flex layout-column">
-              <h2><?php the_sub_field('title'); ?></h2>
-              <p><?php the_sub_field('paragraph'); ?></p>
-              <a href="<?php the_sub_field('call_to_action-URL'); ?>"><?php the_sub_field('call_to_action-text'); ?></a>
-            </article>
-            <?php $image = get_sub_field('img'); ?>
-            <div class="dual-img-container"><img class="flex" src="<?php echo $image['url']; ?>" alt="<?php $image['alt']; ?>" /></div>
-          </section>
-        
-        <?php endif;
-
-        if( get_row_layout() == 'items' ): ?>
-          
-          <section class="layout-column text-center icon-section" style="background: <?php get_sub_field('background_color') ? ''.the_sub_field('background_color') : ''.the_sub_field('background_image') ?>; color:<?php echo get_sub_field('font_color_override');  ?>">
-
-          <?php if (get_sub_field('section_title')) : ?>
-            <h2><?php the_sub_field('section_title') ?></h2>
-          <?php endif;?>
-
-          <div class="layout-row">
-          <?php if( have_rows('repeater') ):
-            while ( have_rows('repeater') ) : the_row(); ?>
-              <article class="layout-column-center text-center icon-item">
-                <img src="<?php $img = get_sub_field('icon'); echo $img['url'] ?>" />
-                <h3><?php the_sub_field('info_title') ?></h3>
-                <h4><?php the_sub_field('info_description') ?></h4>
-                <p><?php the_sub_field('paragraph') ?></p>
-              </article>
-            <?php endwhile; endif;?>
-          </div>
-          <?php if(get_field('cta-text')): ?>
-          <a href="<?php the_field('cta-url') ?>"><?php the_field('cta-text') ?></a>
-         <?php endif; ?>
-        </section>
-      <?php endif;
-
-    endwhile;
-
-else : endif; ?>
-
-  <?php get_template_part('loop', 'tips'); ?>
+<?php get_template_part('loop', 'tips'); ?>
 
 <section class="layout-column text-center icon-section" style="background: <?php get_field('testimonial_background_color') ? ''.the_field('testimonial_background_color') : ''.the_field('testimonial_background_image') ?>; color:<?php the_field('testimonial_font_color_override');  ?>">
 

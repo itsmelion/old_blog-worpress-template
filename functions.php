@@ -429,6 +429,7 @@ add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
 add_action('init', 'post_jobOffer');
 add_action('init', 'post_tips');
+add_action('init', 'post_destinations');
 add_action('init', 'post_pricing');
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
@@ -566,6 +567,70 @@ function post_jobOffer()
     ));
 }
 
+function post_destinations()
+{
+    register_taxonomy_for_object_type('category', 'destinations'); // Register Taxonomies for Category
+    register_taxonomy_for_object_type('post_tag', 'destinations');
+    register_post_type('destinations', // Register Custom Post Type
+        array(
+        'labels' => array(
+            'name' => __('Destinations', 'html5blank'), // Rename these to suit
+            'singular_name' => __('Destination', 'html5blank'),
+            'add_new' => __('New destinations', 'html5blank'),
+            'add_new_item' => __('Add destination', 'html5blank'),
+            'edit' => __('Edit destination', 'html5blank'),
+            'edit_item' => __('Edit destination', 'html5blank'),
+            'new_item' => __('New destination', 'html5blank'),
+            'view' => __('See destinations', 'html5blank'),
+            'view_item' => __('See destination', 'html5blank'),
+            'search_items' => __('Find more destinations', 'html5blank'),
+            'not_found' => __('We have no destinations to display by now..', 'html5blank'),
+            'not_found_in_trash' => __('No destinations wasted! :)', 'html5blank'),
+            'rewrite' => array('slug' => 'destinations')
+        ),
+        'public' => true,
+        'publicly_queryable'  => true,
+        'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+        'has_archive' => true,
+        'supports' => array(
+            'title',
+            'editor',
+            'thumbnail'
+        ), // Go to Dashboard Custom HTML5 Blank post for supports
+        'menu_icon'   => 'dashicons-location-alt',
+        'can_export' => true, // Allows export in Tools > Export
+        'taxonomies' => array(
+            'post_tag',
+            'category'
+        ) // Add Category and Post Tags support
+    ));
+}
+function destinations_cat( $post_ID ) {
+    $post_type = 'destinations';
+    $cat_id = 124; // Your reviews category id (for example: 123)
+    $post_categories=array($cat_id);
+
+    // check if current post type is movie review
+    if(get_post_type($post_ID)==$post_type) {
+        // assign a category for this post by default
+        wp_set_post_categories( $post_ID, $post_categories );
+    }
+
+   return $post_ID;
+}
+add_action( 'publish_post', 'destinations_cat' );
+add_filter('single_template', 'my_single_template');
+
+/**
+* Single template function which will choose our template
+*/
+function my_single_template($single) {
+global $wp_query, $post;
+if((array)get_the_category() == 'destinations') :
+return '/single-destinations.php';
+else: return; endif;
+}
+
 function post_tips()
 {
     register_taxonomy_for_object_type('category', 'job-tips'); // Register Taxonomies for Category
@@ -657,6 +722,20 @@ function post_pricing()
         ) // Add Category and Post Tags support
     ));
 }
+function pricing_cat( $post_ID ) {
+    $post_type = 'pricing';
+    $cat_id = 122; // Your reviews category id (for example: 123)
+    $post_categories=array($cat_id);
+
+    // check if current post type is movie review
+    if(get_post_type($post_ID)==$post_type) {
+        // assign a category for this post by default
+        wp_set_post_categories( $post_ID, $post_categories );
+    }
+
+   return $post_ID;
+}
+add_action( 'publish_post', 'pricing_cat' );
 
 /*------------------------------------*\
     ShortCode Functions
