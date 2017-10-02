@@ -1,5 +1,3 @@
-<h1><?php the_title() ?></h1>
-
 <section class="text-center layout-column flex caroussel-section destinations-section">
   <h2>Check our destinations</h2>
 
@@ -8,10 +6,10 @@
 <?php $my_query = new WP_Query( array( 'post_type' => 'destinations') );
   if ( $my_query->have_posts() ) : while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
 
- <article id="post-<?php the_ID(); ?>" <?php post_class('layout-column-nowrap'); ?> >
+ <article id="post-<?php the_ID(); ?>" <?php post_class('layout-column-forcenowrap-center'); ?> >
 
 	<?php if ( has_post_thumbnail()) : ?>
-		<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+		<a class="layout-row-center" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 			<?php the_post_thumbnail(); // Declare pixel size you need inside the array ?>
 		</a>
 	<?php endif; ?>

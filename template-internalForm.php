@@ -39,7 +39,6 @@ endif;
 
 <?php include 'src/components/sections.php'; ?>
 
-<!-- TODO: CREATE POST OVERVIEW -> Destinations (inside it we have related taxonomy JOBS!) -->
 <?php get_template_part('loop', 'destinations'); ?>
 
 <section class="layout-row-nowrap">

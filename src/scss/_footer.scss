@@ -1,4 +1,27 @@
+footer {
+  background: darken($color, 10%);
+  color: $white7;
+  padding: 5rem 3rem 0 3rem;
+}
+
 .footer-links {
+  margin-bottom: 3rem;
+  li:first-child {
+    color: $white5;
+    font-weight: lighter;
+    margin-bottom: 1rem;
+    font-size: 100%;
+    letter-spacing: .05rem;
+    text-transform: uppercase;
+  }
+  a {
+    font-weight: normal;
+    color: $white7;
+    line-height: 2rem;
+    &:hover {
+      color: $white3;
+    }
+  }
   .social {
     a {
       width: 48pt;
@@ -9,5 +32,15 @@
         height: 100%;
       }
     }
+  }
+}
+
+.copyright {
+  margin: 1rem 0 1.5rem 0;
+  text-align: center;
+  font-size: 80%;
+  color: $white3;
+  a {
+    color: $white5;
   }
 }

@@ -1,9 +1,5 @@
 <footer class="layout-column" role="contentinfo">
 
-	<div>
-		<a class="button" href="<?php echo home_url();?>/#">Call to action</a>
-	</div>
-
 	<div class="layout-row-between-nowrap">
 
 		<?php while( have_rows('footer_list', 'option') ): the_row(); ?>
@@ -39,7 +35,7 @@
 		<!-- copyright -->
 		<p class="copyright">
 					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'html5blank'); ?>
-					<a href="//intuite.ch">Intuitech</a> &amp; <a href="//http://alia-cloud.appspot.com">Christhopher Lion</a>.
+					<a href="//intuite.ch">Intuitech</a> &amp; <a href="//alia-cloud.appspot.com">Christhopher Lion</a>.
 				</p>
 				<!-- /copyright -->
 	</div>

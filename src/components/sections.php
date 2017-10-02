@@ -31,20 +31,20 @@
         endif;
 			?>
         <section
-          class="layout-column text-center icon-section"
+          class="layout-column icon-section"
           style="<?php echo $sectionBG; ?>"
         >
           <?php if (get_sub_field('section_title')) : ?>
             <h2><?php the_sub_field('section_title') ?></h2>
           <?php endif;?>
 
-          <div class="layout-row">
+          <div class="layout-row-around">
           <?php if( have_rows('repeater') ):
               while ( have_rows('repeater') ) : the_row(); $img = get_sub_field('icon');  ?>
 
               <?php if( get_sub_field('chose_layout') == 'labeled' ): ?>
                 <!-- LABELED -->
-                <article class="layout-column text-center icon-item labeled">
+                <article class="layout-column icon-item labeled">
                 <div class="layout-row-nowrap-center">
                   <img src="<?php echo $img['url'] ?>" />
                   <div class="info">

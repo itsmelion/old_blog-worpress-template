@@ -1,10 +1,6 @@
 <?php get_header() ?>
 
-<section class="text-center layout-column flex destinations-section">
-  
-</section>
-
-<section class="layout-row-nowrap" >
+<section class="layout-row-nowrap destinations-header" >
   <article class="flex layout-column">
     <h1><?php the_title() ?></h1>
     <p><?php the_field('paragraph'); ?></p>
@@ -15,8 +11,13 @@
 
 <?php get_template_part('loop', 'tips'); ?>
 
-<section>
-<button>apply for a job in <?php the_title() ?></button>
+<section class="destinations-cta background parallax" data-img-width="1200" data-img-height="698" data-diff="200">
+<form action="//planetexpat.org/join" rel="bookmark">
+  <button>
+    <img src="<?php echo get_bloginfo('template_url') ?>/build/images/compass.svg"
+    apply for a job in <?php the_title() ?>
+  </button>
+</form>
 </section>
 
 <section>

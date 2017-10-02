@@ -118,3 +118,5 @@ a:hover{
   ?>
   
 </nav>
+
+<span class="ghost-nav"></span>

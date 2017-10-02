@@ -1,5 +1,5 @@
 <section class="text-center layout-column flex caroussel-section">
-  <h2>Planet Expat Blog - Tips for Career</h2>
+  <h2>Tips for your career</h2>
 <div class="slick-container">
 
 <?php $my_query = new WP_Query( array( 'post_type' => 'job-tips' ) );
@@ -10,23 +10,19 @@ while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
 
 	 <?php if ( has_post_thumbnail()) : // Check if thumbnail exists ?>
 		<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-			<?php the_post_thumbnail(array(120,120)); // Declare pixel size you need inside the array ?>
+			<?php the_post_thumbnail(); // Declare pixel size you need inside the array ?>
 		</a>
 	<?php endif; ?>
 
-	 <h3>
-			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-		</h3>
+	<h3>
+		<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+	</h3>
 
 
- 	<div class="entry">
  		<?php the_content(); ?>
- 	</div>
 
 	 <?php edit_post_link(); ?>
 
-
- 	<p class="postmetadata"><?php _e( 'Posted in' ); ?> <?php the_category( ', ' ); ?></p>
  	</article>
 
  <?php endwhile; else : ?>
