@@ -88,12 +88,12 @@ a:hover{
 
 <nav class="layout-row-forcenowrap-between-center main-menu flex" id="nav" role="navigation">
 
-  <li class="flex menu-logo">
-    <a title="<?php bloginfo( 'description' ); ?>" href="<?php echo home_url();?>" class="hide-sm show-lg">
-    <img src="<?php echo get_bloginfo('template_url') ?>/build/images/logo.png" alt="<?php bloginfo( 'name' ); ?>"/>
+  <li class="flex layout-row-between-forcenowrap menu-logo">
+    <a class="flex-noshrink" title="<?php bloginfo( 'description' ); ?>" href="<?php echo home_url();?>">
+      <img src="<?php echo get_bloginfo('template_url') ?>/build/images/logo.png" alt="<?php bloginfo( 'name' ); ?>"/>
     </a>
-    <a title="<?php bloginfo( 'description' ); ?>" href="<?php echo home_url();?>" class="hide-lg show-sm">
-    <img src="<?php echo get_bloginfo('template_url') ?>/build/images/logo.svg" alt="<?php bloginfo( 'name' ); ?>"/>
+    <a class="flex-end hide-lg show-sm" href="#bottom-sheet">
+    <img src="<?php echo get_bloginfo('template_url') ?>/build/images/hamburguer.svg" alt="<?php bloginfo( 'name' ); ?>"/>
     </a>
   </li>
   
@@ -102,7 +102,7 @@ a:hover{
       'menu'            => '',
       'container'       => false,
       'container_id'    => '',
-      'menu_class'      => 'menu flex',
+      'menu_class'      => 'menu hide-sm show-lg flex',
       'menu_id'         => '',
       'echo'            => true,
       'fallback_cb'     => 'wp_page_menu',
@@ -118,5 +118,31 @@ a:hover{
   ?>
   
 </nav>
+
+
+<div id="bottom-sheet" class="overlay">
+  <aside class="gaveta" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <?php
+      $args = array(
+        'menu'            => '',
+        'container'       => false,
+        'container_id'    => '',
+        'menu_class'      => 'menu flex',
+        'menu_id'         => '',
+        'echo'            => true,
+        'fallback_cb'     => 'wp_page_menu',
+        'before'          => '',
+        'after'           => '',
+        'link_before'     => '',
+        'link_after'      => '',
+        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+        'depth'           => 2,
+        'walker'          => ''
+        );
+      wp_nav_menu( $args );
+    ?>
+    <a href="#close" class="btn-close" aria-hidden="true"><span class="mdi mdi-close">close</span></a>
+  </aside>
+</div>
 
 <span class="ghost-nav"></span>

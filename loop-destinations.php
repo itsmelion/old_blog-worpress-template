@@ -16,7 +16,6 @@
 
   <h3><?php the_title(); ?></h3>
  	
-	<?php edit_post_link(); ?>
  	</article>
 
  <?php endwhile; else : ?>

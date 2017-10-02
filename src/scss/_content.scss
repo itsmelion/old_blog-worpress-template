@@ -31,20 +31,71 @@
 }
 
 .destinations-cta {
-  padding: 4rem;
+  padding: 15rem 0;
+  flex: 0 0 auto;
+  background-size: cover;
+  background: url('http://wp.planetexpat:9000/wp-content/themes/planetexpat/build/images/map.jpg');
   button {
+    border-radius: $radius;
     border: none;
-    background: $white3;
+    background: white;
     color: white;
-    border-radius: 50%;
-    height: 200pt;
-    width: 200pt;
+    padding: 0;
+    @include shadow;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+    &:hover {
+      span {
+        background-color: lighten(#1195C2, 6%);
+      }
+      img {
+        transform: scale(1.16) rotate(-7deg);
+        transition-duration: .2s;
+        transition-timing-function: ease-out;
+      }
+    }
+    img {
+      @include transition;
+      width: 60pt;
+      margin: 0 .5rem;
+    }
+    span {
+      padding: 2rem;
+      @include transition;
+      border-radius: 0 $radius $radius 0;
+      background-color: #1195C2;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 200%;
+    }
   }
-  background: url('http://wp.planetexpat:9000/wp-content/uploads/rsz_alex-jodoin-2460781.jpg');
+}
+
+.other-destinations {
+  padding: 5rem 2rem;
+  h2 {
+    margin-bottom: 5rem;
+  }
+  article {
+    max-width: 320pt;
+  }
+  img {
+    width: 100pt;
+    height: 100pt;
+    text-align: center;
+    border-radius: 100pt;
+    @include shadow;
+  }
+  h3 {
+    font-weight: bold;
+    color: $black5;
+    margin-bottom: .5rem;
+    font-size: 125%;
+  }
 }
 
 .dual {
-  // flex: 0 1 50%;
   article {
     width: 50%;
     padding: 3rem;

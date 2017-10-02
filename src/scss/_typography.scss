@@ -70,6 +70,7 @@ h2 {
     @include font-size(2);
     font-size: 3vw;
     letter-spacing: -.05em;
+    font-weight: lighter;
     @media screen and (max-width: 840px) {
         font-size: 6vw;
     }
