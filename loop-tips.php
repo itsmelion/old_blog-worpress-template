@@ -2,7 +2,7 @@
   <h2>Planet Expat Blog - Tips for Career</h2>
 <div class="slick-container">
 
-<?php $my_query = new WP_Query( array( 'post_type' => 'job-tips', 'ignore_sticky_posts' => 1 ) );
+<?php $my_query = new WP_Query( array( 'post_type' => 'job-tips' ) );
   if ( $my_query->have_posts() ) :
 while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
 

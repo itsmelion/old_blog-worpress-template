@@ -1,9 +1,11 @@
+<h1><?php the_title() ?></h1>
+
 <section class="text-center layout-column flex caroussel-section destinations-section">
   <h2>Check our destinations</h2>
 
 <div class="slick-container">
 
-<?php $my_query = new WP_Query( array( 'post_type' => 'destinations', 'ignore_sticky_posts' => 1 ) );
+<?php $my_query = new WP_Query( array( 'post_type' => 'destinations') );
   if ( $my_query->have_posts() ) : while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
 
  <article id="post-<?php the_ID(); ?>" <?php post_class('layout-column-nowrap'); ?> >

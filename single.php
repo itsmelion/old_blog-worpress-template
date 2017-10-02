@@ -1,71 +1,64 @@
 <?php get_header(); ?>
+ 
+<main id="main" role="main">
 
-	<main role="main" aria-label="Content">
-	<!-- section -->
-	<section>
+<?php
+// Start the loop.
+while ( have_posts() ) : the_post();
 
-	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+	/*
+		* Include the post format-specific template for the content. If you want to
+		* use this in a child theme, then include a file called called content-___.php
+		* (where ___ is the post format) and that will be used instead.
+		*/
+	?>
+	<h1>i am single temlpater</h1>
 
-		<!-- article -->
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php
+	if ( is_sticky() && is_home() ) :
+		echo twentyseventeen_get_svg( array( 'icon' => 'thumb-tack' ) );
+	endif;
+	?>
+	<header class="entry-header">
+		<?php
+		if ( 'post' === get_post_type() ) {
+			echo '<div class="entry-meta">';
+				if ( is_single() ) {
+					twentyseventeen_posted_on();
+				} else {
+					echo twentyseventeen_time_link();
+					twentyseventeen_edit_link();
+				};
+			echo '</div><!-- .entry-meta -->';
+		};
 
-			<!-- post thumbnail -->
-			<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-					<?php the_post_thumbnail(); // Fullsize image for the single post ?>
-				</a>
-			<?php endif; ?>
-			<!-- /post thumbnail -->
+		if ( is_single() ) {
+			the_title( '<h1 class="entry-title">', '</h1>' );
+		} elseif ( is_front_page() && is_home() ) {
+			the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
+		} else {
+			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+		}
+		?>
+	</header><!-- .entry-header -->
 
-			<!-- post title -->
-			<h1>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-			</h1>
-			<!-- /post title -->
-
-			<!-- post details -->
-			<span class="date">
-				<time datetime="<?php the_time('Y-m-d'); ?> <?php the_time('H:i'); ?>">
-					<?php the_date(); ?> <?php the_time(); ?>
-				</time>
-			</span>
-			<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-			<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
-			<!-- /post details -->
-
-			<?php the_content(); // Dynamic Content ?>
-
-			<?php the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
-
-			<p><?php _e( 'Categorised in: ', 'html5blank' ); the_category(', '); // Separated by commas ?></p>
-
-			<p><?php _e( 'This post was written by ', 'html5blank' ); the_author(); ?></p>
-
-			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
-
-			<?php comments_template(); ?>
-
-		</article>
-		<!-- /article -->
-
-	<?php endwhile; ?>
-
-	<?php else: ?>
-
-		<!-- article -->
-		<article>
-
-			<h1><?php _e( 'Sorry, no single post to display.', 'html5blank' ); ?></h1>
-
-		</article>
-		<!-- /article -->
-
+	<?php if ( '' !== get_the_post_thumbnail() && ! is_single() ) : ?>
+		<div class="post-thumbnail">
+			<a href="<?php the_permalink(); ?>">
+				<?php the_post_thumbnail( 'twentyseventeen-featured-image' ); ?>
+			</a>
+		</div><!-- .post-thumbnail -->
 	<?php endif; ?>
 
-	</section>
-	<!-- /section -->
-	</main>
 
-<?php get_sidebar(); ?>
+</article><!-- #post-## -->
+	<?php 
 
+// End the loop.
+endwhile;
+?>
+
+</main><!-- .site-main -->
+ 
 <?php get_footer(); ?>

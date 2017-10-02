@@ -1,6 +1,6 @@
-<?php if( have_rows('sections') ):
+<?php if( have_rows('flex-internal') ):
 
-    while ( have_rows('sections') ) : the_row();
+    while ( have_rows('flex-internal') ) : the_row();
 
 			if( get_row_layout() == 'Article | Image' ): ?>
 
@@ -45,15 +45,15 @@
               <?php if( get_sub_field('chose_layout') == 'labeled' ): ?>
                 <!-- LABELED -->
                 <article class="layout-column text-center icon-item labeled">
-                <div class="layout-row-nowrap-center">
-                  <img src="<?php echo $img['url'] ?>" />
-                  <div class="info">
-                  <h3><?php the_sub_field('info_title') ?></h3>
-                  <h4><?php the_sub_field('info_sub') ?></h4>
+                  <div class="layout-row-nowrap-center">
+                    <img src="<?php echo $img['url'] ?>" />
+                    <div class="info">
+                    <h3><?php the_sub_field('info_title') ?></h3>
+                    <h4><?php the_sub_field('info_sub') ?></h4>
+                    </div>
                   </div>
-                </div>
-                <p><?php the_sub_field('paragraph') ?></p>
-              </article>
+                  <p><?php the_sub_field('paragraph') ?></p>
+                </article>
               <?php endif; ?>
               <?php if( get_sub_field('chose_layout') == 'centered' ): ?>
                 <!-- CENTRALIZED -->
@@ -76,12 +76,12 @@
               <?php endif; ?>
             
               <?php if( get_sub_field('chose_layout') == 'big' ): ?>
-                <!-- B-I-G -->
-                <article class="layout-column text-center icon-item">
-                  <h1><?php the_sub_field('big_header') ?></h1>
-                  <p><?php the_sub_field('paragraph') ?></p>
-                </article>
-              <?php endif; ?>
+              <!-- B-I-G -->
+              <article class="layout-column text-center icon-item">
+                <h1><?php the_sub_field('big_header') ?></h1>
+                <p><?php the_sub_field('paragraph') ?></p>
+              </article>
+            <?php endif; ?>
 
             <?php endwhile; endif; ?>
 

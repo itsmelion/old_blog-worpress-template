@@ -1,6 +1,6 @@
-<?php if( have_rows('sections') ):
+<?php if( have_rows('sections-pricings') ):
 
-    while ( have_rows('sections') ) : the_row();
+    while ( have_rows('sections-pricings') ) : the_row();
 
 			if( get_row_layout() == 'Article | Image' ): ?>
 

@@ -576,7 +576,7 @@ function post_destinations()
         'labels' => array(
             'name' => __('Destinations', 'html5blank'), // Rename these to suit
             'singular_name' => __('Destination', 'html5blank'),
-            'add_new' => __('New destinations', 'html5blank'),
+            'add_new' => __('New destination', 'html5blank'),
             'add_new_item' => __('Add destination', 'html5blank'),
             'edit' => __('Edit destination', 'html5blank'),
             'edit_item' => __('Edit destination', 'html5blank'),
@@ -619,17 +619,7 @@ function destinations_cat( $post_ID ) {
    return $post_ID;
 }
 add_action( 'publish_post', 'destinations_cat' );
-add_filter('single_template', 'my_single_template');
 
-/**
-* Single template function which will choose our template
-*/
-function my_single_template($single) {
-global $wp_query, $post;
-if((array)get_the_category() == 'destinations') :
-return '/single-destinations.php';
-else: return; endif;
-}
 
 function post_tips()
 {

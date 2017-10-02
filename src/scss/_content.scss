@@ -39,15 +39,25 @@
   .icon-item {
     margin: 1rem;
     padding: .5rem;
+    &.labeled {
+      max-width: 285pt;
+    }
+    &.labeled:nth-of-type(even) {
+      >div {
+        flex-direction: row-reverse;
+        img {
+          margin-left: 1.5rem;
+        }
+      }
+    }
     img {
       max-width: 128pt;
     }
     >div {
-      width: 280pt;
       img {
         border-radius: 50%;
         width: 52pt;
-        margin-right: 1rem;
+        margin-right: 1.5rem;
       }
       .info {
         text-align: left;

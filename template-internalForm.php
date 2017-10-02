@@ -73,6 +73,8 @@ endif;
  </ol>
 </section>
 
+<?php include 'src/components/flex-internal.php'; ?>
+
 </main>
 
 <?php get_footer(); ?>
