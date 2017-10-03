@@ -28,6 +28,7 @@ const buildInclude = [
   '**/*.eot',
   '**/*.woff',
   '**/*.woff2',
+  '**/*.gz',
   // include specific files and folders
   'screenshot.png',
   // exclude files and folders
@@ -236,7 +237,7 @@ gulp.task('buildFiles', function () {
   return gulp.src(buildInclude)
     .pipe(gulp.dest(build))
     .pipe(notify({
-      message: 'Copy from ' + buildInclude + 'to' + build + 'complete',
+      message: 'Copy to' + build + 'complete',
       onLast: true
     }));
 });

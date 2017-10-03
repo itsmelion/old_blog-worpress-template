@@ -267,3 +267,53 @@
     max-height: 120pt;
   }
 }
+
+.pricings-section {
+  padding: 5rem 0;
+}
+
+.price {
+  position: relative;
+  margin: 3rem 2rem;
+  padding: 1.5rem 2rem 4rem 2rem;
+  max-width: 320pt;
+  min-width: 250pt;
+  border-radius: 2*$radius;
+  @include shadow;
+  p {
+    margin-bottom: 2.5rem;
+  }
+  h1 {
+    font-size: 200%;
+    font-weight: lighter;
+  }
+  .value {
+    font-size: 280%;
+    font-weight: bold;
+    line-height: 2;
+  }
+  &.highlight {
+    color: red !important;
+    a {
+      background-color: rgb(216, 44, 104);
+    }
+  }
+  ol {
+    list-style: circle;
+    font-size: 90%;
+    line-height: 2;
+    text-align: left;
+  }
+  a {
+    @include shadow;
+    margin: auto;
+    display: block;
+    background-color: rgb(73, 199, 161);
+    line-height: 1;
+    width: 180pt;
+    left: 50%;
+    margin-left: -90pt;
+    position: absolute;
+    bottom: -1.5rem;
+  }
+}
