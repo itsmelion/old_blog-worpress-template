@@ -99,6 +99,9 @@
   article {
     width: 50%;
     padding: 3rem;
+    h2 {
+      margin-bottom: 2rem;
+    }
     @media #{$grid-sm} {
       width: 100%;
     }
@@ -118,18 +121,19 @@
     margin-bottom: 3rem;
   }
   .icon-item {
-    margin: 1rem;
+    margin: 2rem;
     padding: .5rem;
-    &.labeled {
-      max-width: 285pt;
-    }
-    &.labeled:nth-of-type(even) {
-      >div {
-        flex-direction: row-reverse;
-        img {
-          margin-left: 1.5rem;
-        }
-      }
+    width: 280pt; // &.labeled:nth-of-type(even) {
+    //   >div {
+    //     flex-direction: row-reverse;
+    //     img {
+    //       margin-left: 1.5rem;
+    //     }
+    //   }
+    // }
+    h3 {
+      margin: 1.5rem 0 1rem 0;
+      font-size: 125%;
     }
     img {
       max-width: 128pt;
@@ -221,17 +225,21 @@
     width: 100%;
   } // posts
   .job-tips {
-    width: auto;
+    width: 200pt;
     margin: 1rem;
-    padding: 1rem;
     border-radius: $radius;
     background-color: rgb(236, 242, 245);
     @include shadow;
     h3 {
-      margin-bottom: 1rem;
+      margin: 1rem 0;
+      padding: 0 1rem;
       a {
         color: $color;
       }
+    }
+    p {
+      margin: 1rem 0;
+      padding: 1rem;
     }
   }
   &.destinations-section {
@@ -257,7 +265,7 @@
 }
 
 .pe-news {
-  padding-top: 2rem;
+  padding: 2rem;
   h5 {
     color: $black3;
   }
@@ -265,6 +273,8 @@
   li {
     width: 128pt;
     max-height: 120pt;
+    margin-top: 1.5rem;
+    margin-right: 1.5rem;
   }
 }
 

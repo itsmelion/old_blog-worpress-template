@@ -1,5 +1,3 @@
-// Variables
-$base-font: sans-serif;
 $base-line-height: 1.4;
 $base-font-size: 100%;
 // Font size mixin for REM output with PX fallback
@@ -13,8 +11,10 @@ $base-font-size: 100%;
 	Standard font styling
 \******************************************************************************/
 
+html,
 body {
-    font-family: $base-font;
+    font-size: 100%;
+    font-family: 'Montserrat', 'Open Sans', sans-serif;
     line-height: $base-line-height;
     font-weight: lighter;
 }
@@ -51,8 +51,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $base-font;
-    line-height: 1.2;
+    font-family: 'Montserrat', 'Open Sans', sans-serif;
+    line-height: 1.4;
     margin: 0;
     font-weight: bolder;
 }

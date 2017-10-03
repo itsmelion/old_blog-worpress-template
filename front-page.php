@@ -21,7 +21,6 @@ endif;
 
 <header id="front-page" class="layout-column-center flex this-header" role="banner">
     <div class="flex layout-row-nowrap-center">
-      <img width="120pt" height="auto" src="<?php echo get_template_directory_uri().'/build/images/triangle.svg' ?>">
 		  <h1><?php the_field('hero') ?></h1>
     </div>
     <div class="flex ctas">
@@ -30,8 +29,6 @@ endif;
     </div>
 
 </header>
-
-<?php get_template_part('loop'); ?>
 
 <?php include 'src/components/sections.php'; ?>
 

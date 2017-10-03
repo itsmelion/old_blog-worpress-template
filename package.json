@@ -13,7 +13,7 @@
     "compile": "gulp build --production && gulp gzip && gulp buildFiles"
   },
   "dependencies": {
-    "flamework": "^1.1.0",
+    "flamework": "^1.1.1",
     "gsap": "latest",
     "lazyloadjs": "latest",
     "pace-js": "latest",

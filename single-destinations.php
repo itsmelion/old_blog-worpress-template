@@ -5,15 +5,15 @@
     <h1><?php the_title() ?></h1>
     <p><?php the_field('paragraph'); ?></p>
   </article>
-  <?php $image = get_sub_field('img'); ?>
-  <div class="dual-img-container"><img class="flex" src="<?php echo $image['url']; ?>" alt="<?php $image['alt']; ?>" /></div>
+  <?php $image = get_field('region-image'); ?>
+  <div class="dual-img-container"><img class="flex" src="<?php echo $image; ?>" alt="Region Image" /></div>
 </section>
 
 <?php get_template_part('loop', 'tips'); ?>
 
 <section class="layout-row-center destinations-cta background parallax" data-img-width="1200" data-img-height="698" data-diff="300">
 <form action="//planetexpat.org/join" rel="bookmark">
-<button class="layout-row-forcenowrap-center-stretch">
+<button class="layout-row-forcenowrap-center">
   <img src="<?php echo get_bloginfo('template_url') ?>/build/images/marker.svg"/>
     <span>apply NOW for a job in <?php the_title() ?></span>
   </button>

@@ -1,6 +1,6 @@
 const project = 'Planet Expat'; // Project name, used for build zip.
 const appURL = 'http://wp.planetexpat/'; // Local Development URL for BrowserSync. Change as-needed.
-const build = './theme/'; // Files that you want to package into a zip go here
+const build = './theme'; // Files that you want to package into a zip go here
 const source = './src';
 const dist = './build';
 
@@ -20,16 +20,8 @@ const buildInclude = [
   // include common file types
   '**/*.php',
   '**/*.html',
-  build + '/**/*.css',
   'style.css',
-  build + '/**/*.js',
-  build + '/**/*.svg',
-  build + '/images/**/*',
-  build + '/**/*.ttf',
-  build + '/**/*.eot',
-  build + '/**/*.otf',
-  build + '/**/*.woff',
-  build + '/**/*.woff2',
+  dist + '/**/*',
   '**/*.gz',
   // include specific files and folders
   'screenshot.png',
@@ -203,7 +195,7 @@ gulp.task('images', () => {
     .pipe(imageMin({
       interlaced: true,
       progressive: true,
-      optimizationLevel: 5,
+      optimizationLevel: 6,
       svgoPlugins: [{
         removeViewBox: true
       }]

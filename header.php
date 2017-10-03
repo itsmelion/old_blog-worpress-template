@@ -2,7 +2,9 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
   <title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' : '; } ?><?php bloginfo('name'); ?></title>
-	<link href="//www.google-analytics.com" rel="dns-prefetch">
+  <link href="//www.google-analytics.com" rel="dns-prefetch">
+  <link href="//www.fonts.googleapis.com" rel="dns-prefetch">
+  
   <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?>" href="<?php bloginfo('rss2_url'); ?>" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,8 +34,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-status-bar-style" content="black-translucent">
-	<meta name="theme-color" content="#4f2f21" />
-	<meta name="msapplication-TileColor" content="#4f2f21" />
+	<meta name="theme-color" content="#516377" />
+	<meta name="msapplication-TileColor" content="#516377" />
   <meta name="keywords" content="Alia web, alia, alia mobile, mobile apps, apps, belo horizonte,
 brazil, brasil, empresa, software" />
 
@@ -41,10 +43,10 @@ brazil, brasil, empresa, software" />
   <meta property="og:locale" content="<?php language_attributes(); ?>">
   <meta property="og:locale:alternate" content="<?php language_attributes(); ?>" />
   <meta property="fb:app_id" content="{{facebookAppId}}">
-  <meta property="og:site_name" content="Alia" />
-  <meta property="og:title" content="Alia overview" />
-  <meta property="og:description" content="Alia software company" />
-  <meta property="og:url" content="lion.alia.tk" />
+  <meta property="og:site_name" content="Planet Expat" />
+  <meta property="og:title" content="Planet Expat - Work Abroad" />
+  <meta property="og:description" content="Work abroad" />
+  <meta property="og:url" content="//planetexpat.org" />
 
   <meta property="og:image" content="<?php echo get_bloginfo('template_url') ?>/build/images/brand/logo-800x600.png" />
   <meta property="og:image:type" content="image/jpeg">
@@ -59,9 +61,9 @@ brazil, brasil, empresa, software" />
   <meta property="og:audio" content="<?php echo get_bloginfo('template_url') ?>/build/images/brand/audio.mp3" />
   <meta property="og:audio:type" content="audio/mpeg" />
 
-  <meta property="twitter:title" content="Alia Multimedia" />
+  <meta property="twitter:title" content="Planet Expat" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,300i,700" rel="stylesheet"> 
   <?php wp_head(); ?>
-  
 <style>
 a, h1{
   color: <?php the_field('main-color', 'option'); ?>;
