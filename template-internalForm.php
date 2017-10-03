@@ -42,27 +42,24 @@ endif;
 <?php get_template_part('loop', 'destinations'); ?>
 
 <section class="layout-row-nowrap">
- <form>
-   <h3>FORM: Apply now!</h3>
-   <button>apply</button>
- </form>
- <ol class="layout-column">
+ <div><?php the_content() ?></div>
+ <ol class="layout-column-nowrap form-list">
 
- <li class="layout-column text-center icon-item">
+ <li class="layout-column icon-item">
  <img src="<?php echo $img['url'] ?>" />
  <h3>Info title</h3>
  <h4>imerse growth exp</h4>
  <p>asdasd asdasdas asdasdasd asdasdasd asdasd</p>
  </li>
  
- <li class="layout-column text-center icon-item">
+ <li class="layout-column icon-item">
   <img src="<?php echo $img['url'] ?>" />
   <h3>Info title</h3>
   <h4>imerse growth exp</h4>
   <p>asdasd asdasdas asdasdasd asdasdasd asdasd</p>
   </li>
 
-  <li class="layout-column text-center icon-item">
+  <li class="layout-column icon-item">
   <img src="<?php echo $img['url'] ?>" />
   <h3>Info title</h3>
   <h4>imerse growth exp</h4>

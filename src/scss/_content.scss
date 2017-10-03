@@ -155,6 +155,21 @@
   }
 }
 
+.form-list {
+  .icon-item {
+    h2,
+    h3,
+    h4,
+    h5,
+    p {
+      text-align: left;
+    }
+    img {
+      width: 50pt;
+    }
+  }
+}
+
 .caroussel-section {
   position: relative;
   margin: 6rem 0 5rem 0;
