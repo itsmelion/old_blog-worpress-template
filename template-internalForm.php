@@ -42,29 +42,33 @@ endif;
 <?php get_template_part('loop', 'destinations'); ?>
 
 <section class="layout-row-nowrap">
- <div><?php the_content() ?></div>
+ <div class="layout-column-center"><?php the_content() ?></div>
  <ol class="layout-column-nowrap form-list">
 
- <li class="layout-column icon-item">
- <img src="<?php echo $img['url'] ?>" />
- <h3>Info title</h3>
- <h4>imerse growth exp</h4>
- <p>asdasd asdasdas asdasdasd asdasdasd asdasd</p>
- </li>
- 
- <li class="layout-column icon-item">
-  <img src="<?php echo $img['url'] ?>" />
-  <h3>Info title</h3>
-  <h4>imerse growth exp</h4>
-  <p>asdasd asdasdas asdasdasd asdasdasd asdasd</p>
-  </li>
-
-  <li class="layout-column icon-item">
-  <img src="<?php echo $img['url'] ?>" />
-  <h3>Info title</h3>
-  <h4>imerse growth exp</h4>
-  <p>asdasd asdasdas asdasdasd asdasdasd asdasd</p>
-  </li>
+ <li class="layout-row-start-forcenowrap icon-item">
+ <img class="flex-initial" src="<?php echo $img['url'] ?>" />
+ <div>
+   <h3>Info title</h3>
+   <h4>imerse growth exp</h4>
+   <p>asdasd asdasdas asdasdasd asdasdasd asdasd</p>
+ </div>
+</li>
+<li class="layout-row-start-forcenowrap icon-item">
+  <img class="flex-initial" src="<?php echo $img['url'] ?>" />
+  <div>
+    <h3>Info title</h3>
+    <h4>imerse growth exp</h4>
+    <p>asdasd asdasdas asdasdasd asdasdasd asdasd</p>
+  </div>
+</li>
+<li class="layout-row-start-forcenowrap icon-item">
+  <img class="flex-initial" src="<?php echo $img['url'] ?>" />
+  <div>
+    <h3>Info title</h3>
+    <h4>imerse growth exp</h4>
+    <p>asdasd asdasdas asdasdasd asdasdasd asdasd</p>
+  </div>
+</li>
 
  </ol>
 </section>

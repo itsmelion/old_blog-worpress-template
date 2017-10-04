@@ -64,38 +64,15 @@ brazil, brasil, empresa, software" />
   <meta property="twitter:title" content="Planet Expat" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,300i,700" rel="stylesheet"> 
   <?php wp_head(); ?>
-<style>
-a, h1{
-  color: <?php the_field('main-color', 'option'); ?>;
-}
-a:hover{
-    color: <?php the_field('main-color-dark', 'option'); ?>;
-}
 
-::selection {
-	background: <?php the_field('main-color', 'option'); ?>;
-}
-
-::-moz-selection {
-	background: <?php the_field('main-color', 'option'); ?>;
-}
-
-#nav{
-  background-color: <?php the_field('main-color-dark', 'option'); ?>;
-  background-color: rgba(<?php the_field('main-color-dark', 'option'); ?>, .9);
-}
-</style>
 </head>
-<body <?php body_class('layout-column-fill-stretch'); ?> >
+<body <?php body_class('layout-column-fill-stretch-forcenowrap'); ?> >
 
-<nav class="layout-row-forcenowrap-between-center main-menu flex" id="nav" role="navigation">
+<nav class="layout-row-forcenowrap-between-center main-menu" id="nav" role="navigation">
 
-  <li class="flex layout-row-between-forcenowrap menu-logo">
-    <a class="flex-noshrink" title="<?php bloginfo( 'description' ); ?>" href="<?php echo home_url();?>">
+  <li class="flex-initial-noshrink layout-row-between-forcenowrap menu-logo">
+    <a title="<?php bloginfo( 'description' ); ?>" href="<?php echo home_url();?>">
       <img src="<?php echo get_bloginfo('template_url') ?>/build/images/logo.png" alt="<?php bloginfo( 'name' ); ?>"/>
-    </a>
-    <a class="flex-end hide-lg show-sm" href="#bottom-sheet">
-    <img src="<?php echo get_bloginfo('template_url') ?>/build/images/hamburguer.svg" alt="<?php bloginfo( 'name' ); ?>"/>
     </a>
   </li>
   
@@ -118,7 +95,9 @@ a:hover{
       );
     wp_nav_menu( $args );
   ?>
-  
+  <li class="flex-end hide-lg show-sm"><a  href="#bottom-sheet">
+  <img src="<?php echo get_bloginfo('template_url') ?>/build/images/hamburguer.svg" alt="<?php bloginfo( 'name' ); ?>"/>
+  </a></li>
 </nav>
 
 

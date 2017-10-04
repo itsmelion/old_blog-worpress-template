@@ -14,6 +14,7 @@ endif;
 }
 </style>
 
+<?php if(!empty(get_field('background_image_desktop'))) : ?>
 <header id="front-page" class="layout-column-center flex this-header" role="banner">
     <div class="flex layout-row-nowrap-center">
 		  <h1><?php the_field('hero') ?></h1>
@@ -28,12 +29,15 @@ endif;
     </div>
 
 </header>
+<?php endif; ?>
 
 <main role="main" aria-label="Content">
 
 <?php include 'src/components/sections.php'; ?>
 
+<section>
 <?php get_template_part('loop'); ?>
+</section>
 
 
 </main>

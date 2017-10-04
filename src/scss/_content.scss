@@ -16,6 +16,8 @@
 
 .destinations-header {
   background: #f5f5f5;
+  height: 400px;
+  height: 60vh;
   article {
     width: 50%;
     padding: 3rem;
@@ -34,7 +36,7 @@
   padding: 15rem 0;
   flex: 0 0 auto;
   background-size: cover;
-  background: url('http://wp.planetexpat:9000/wp-content/themes/planetexpat/build/images/map.jpg');
+  background: url('http://wp.planetexpat:9000/wp-content/themes/expat/build/images/map.jpg');
   button {
     border-radius: $radius;
     border: none;
@@ -77,8 +79,13 @@
   h2 {
     margin-bottom: 5rem;
   }
+  >div {
+    width: 100%;
+  }
   article {
     max-width: 320pt;
+    min-width: 200px;
+    margin: 2rem;
   }
   img {
     width: 100pt;
@@ -123,44 +130,58 @@
   .icon-item {
     margin: 2rem;
     padding: .5rem;
-    width: 280pt; // &.labeled:nth-of-type(even) {
-    //   >div {
-    //     flex-direction: row-reverse;
-    //     img {
-    //       margin-left: 1.5rem;
-    //     }
-    //   }
-    // }
+    min-width: 180px;
+    width: 210pt;
+    max-width: 320px;
+    @media #{$grid-sm} {
+      margin: 1rem;
+      width: auto;
+    }
     h3 {
       margin: 1.5rem 0 1rem 0;
       font-size: 125%;
     }
     img {
       max-width: 128pt;
+      max-height: 128pt;
     }
-    >div {
-      img {
-        border-radius: 50%;
-        width: 52pt;
-        margin-right: 1.5rem;
+    p {
+      text-align: left !important;
+    }
+  }
+  >div {
+    align-items: flex-start !important;
+    align-content: flex-start !important;
+    margin: 1rem 0;
+    p {
+      text-align: left !important;
+    }
+    img {
+      border-radius: 50%;
+      width: 3rem;
+    }
+    .info {
+      text-align: left;
+      margin-left: 2rem;
+      h3 {
+        font-weight: bold;
+        margin: 0;
+        margin-bottom: .2rem;
+        font-size: 100%;
       }
-      .info {
-        text-align: left;
-        h3 {
-          font-weight: bold;
-        }
-        h4 {
-          font-weight: lighter;
-          font-size: 90%;
-          font-style: oblique;
-        }
+      h4 {
+        font-weight: 300;
+        font-size: 80%;
+        font-style: oblique;
       }
     }
   }
 }
 
 .form-list {
+  padding: 2rem;
   .icon-item {
+    margin-bottom: 2rem;
     h2,
     h3,
     h4,
@@ -169,7 +190,8 @@
       text-align: left;
     }
     img {
-      width: 50pt;
+      width: 5rem;
+      margin-right: 2rem;
     }
   }
 }
@@ -243,6 +265,10 @@
     }
   }
   &.destinations-section {
+    article {
+      margin: 1rem;
+      margin-right: 2rem;
+    }
     a {
       text-align: center;
       display: flex;
@@ -285,10 +311,15 @@
 .price {
   position: relative;
   margin: 3rem 2rem;
-  padding: 1.5rem 2rem 4rem 2rem;
-  max-width: 320pt;
-  min-width: 250pt;
+  padding: 1rem 2rem 4rem 2rem;
+  max-width: 360px;
+  width: auto;
+  min-width: 230px;
   border-radius: 2*$radius;
+  @media #{$grid-sm} {
+    max-width: 480px;
+    width: 100%;
+  }
   @include shadow;
   p {
     margin-bottom: 2.5rem;

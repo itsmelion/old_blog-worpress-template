@@ -44,8 +44,8 @@
 
               <?php if( get_sub_field('chose_layout') == 'labeled' ): ?>
                 <!-- LABELED -->
-                <article class="layout-column icon-item labeled">
-                <div class="layout-row-nowrap-center">
+                <article class="layout-column-start icon-item labeled">
+                <div class="layout-row-forcenowrap-center">
                   <img src="<?php echo $img['url'] ?>" />
                   <div class="info">
                   <h3><?php the_sub_field('info_title') ?></h3>
@@ -67,7 +67,7 @@
 
               <?php if( get_sub_field('chose_layout') == 'svg' ): ?>
                 <!-- SVG -->
-                <article class="layout-column text-center icon-item">
+                <article class="layout-column-center text-center icon-item">
                   <img src="<?php echo $img['url'] ?>" />
                   <h3><?php the_sub_field('info_title') ?></h3>
                   <h4><?php the_sub_field('info_description') ?></h4>
@@ -77,7 +77,7 @@
             
               <?php if( get_sub_field('chose_layout') == 'big' ): ?>
                 <!-- B-I-G -->
-                <article class="layout-column text-center icon-item">
+                <article class="layout-column-center text-center icon-item">
                   <h1><?php the_sub_field('big_header') ?></h1>
                   <p><?php the_sub_field('paragraph') ?></p>
                 </article>

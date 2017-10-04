@@ -1,6 +1,6 @@
 const project = 'Planet Expat'; // Project name, used for build zip.
 const appURL = 'http://wp.planetexpat/'; // Local Development URL for BrowserSync. Change as-needed.
-const build = './theme'; // Files that you want to package into a zip go here
+const build = 'theme'; // Files that you want to package into a zip go here
 const source = './src';
 const dist = './build';
 
