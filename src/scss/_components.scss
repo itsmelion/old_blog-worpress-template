@@ -18,3 +18,19 @@
     @include shadow;
   }
 }
+
+.wpcf7{
+    padding:2rem;
+    p{margin-bottom: 1rem;}
+    label{line-height:2;}
+    input{
+        line-height: 2;
+        border: none;
+        box-sizing: border-box;
+        box-shadow: 0 2pt 10px #cccccc;
+        border-radius: 2pt;
+        color: #9a9a9a;
+        font-size: 120%;
+    }
+    
+}
