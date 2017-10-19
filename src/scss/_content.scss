@@ -36,7 +36,7 @@
   padding: 15rem 0;
   flex: 0 0 auto;
   background-size: cover;
-  background: url('http://wp.planetexpat:9000/wp-content/themes/expat/build/images/map.jpg');
+  background: url('/wp-content/themes/expat/build/images/map.jpg');
   button {
     border-radius: $radius;
     border: none;
@@ -336,7 +336,8 @@
   .value {
     font-size: 280%;
     font-weight: bold;
-    line-height: 2;
+    line-height: 1.2;
+    margin: 1rem;
   }
   &.highlight {
     a {

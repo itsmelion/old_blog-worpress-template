@@ -1,6 +1,6 @@
 const project = 'Planet Expat'; // Project name, used for build zip.
 const appURL = 'http://wp.planetexpat/'; // Local Development URL for BrowserSync. Change as-needed.
-const build = 'theme'; // Files that you want to package into a zip go here
+const build = './theme'; // Files that you want to package into a zip go here
 const source = './src';
 const dist = './build';
 
@@ -69,7 +69,7 @@ gulp.task('build', () => {
 
 gulp.task('zip', () => {
   runsequence('buildFiles', 'buildZip')
-})
+});
 
 gulp.task('serve', () => {
   runsequence('build', () => {
@@ -219,6 +219,7 @@ gulp.task('fonts', () => {
 gulp.task('clear', function () {
   cache.clearAll();
 });
+
 gulp.task('clean', function () {
   return gulp.src(['**/.sass-cache', '**/.DS_Store'], {
     read: false
@@ -231,10 +232,11 @@ gulp.task('buildFiles', function () {
   return gulp.src(buildInclude)
     .pipe(gulp.dest(build))
     .pipe(notify({
-      message: 'Copy to' + build + 'complete',
+      message: 'Copy to ' + build + ' complete',
       onLast: true
     }));
 });
+
 gulp.task('buildZip', function () {
   return gulp.src(build)
     .pipe(zip(project + '.zip'))
