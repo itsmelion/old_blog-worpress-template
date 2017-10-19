@@ -1,5 +1,5 @@
 footer {
-  background: darken($color, 10%);
+  background: #2d3e50;
   color: $white7;
   padding: 5rem 3rem 0 3rem;
 }
@@ -16,10 +16,10 @@ footer {
   }
   a {
     font-weight: normal;
-    color: $white7;
+    color: $white7 !important;
     line-height: 2rem;
     &:hover {
-      color: $white3;
+      color: $white5 !important;
     }
   }
   .social {

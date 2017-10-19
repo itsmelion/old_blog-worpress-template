@@ -62,7 +62,7 @@ brazil, brasil, empresa, software" />
   <meta property="og:audio:type" content="audio/mpeg" />
 
   <meta property="twitter:title" content="Planet Expat" />
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,300i,700" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,300i,600" rel="stylesheet">
   <?php wp_head(); ?>
 
 </head>
@@ -95,6 +95,13 @@ brazil, brasil, empresa, software" />
       );
     wp_nav_menu( $args );
   ?>
+
+  <li class="flex-initial layout-row-between-forcenowrap">
+    <a class="button" href="#">
+      Contact us
+    </a>
+  </li>
+
   <li class="flex-end hide-lg show-sm"><a  href="#bottom-sheet">
   <img src="<?php echo get_bloginfo('template_url') ?>/build/images/hamburguer.svg" alt="<?php bloginfo( 'name' ); ?>"/>
   </a></li>

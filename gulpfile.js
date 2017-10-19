@@ -12,7 +12,7 @@ const vendors = [
   // "./node_modules/tether-tooltip/dist/js/tooltip.js",
   "./node_modules/slick-carousel/slick/slick.js",
   // "./node_modules/photoswipe/dist/photoswipe-ui-default.js",
-  "./node_modules/gsap/TweenLite.js",
+  // "./node_modules/gsap/TweenLite.js",
   source + '/scripts/vendors/*.js'
 ];
 

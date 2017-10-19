@@ -146,18 +146,21 @@
       max-height: 128pt;
     }
     p {
-      text-align: left !important;
+      text-align: justify !important;
+      text-justify: inter-word;
     }
   }
   >div {
     align-items: flex-start !important;
     align-content: flex-start !important;
     margin: 1rem 0;
+    text-align: justify !important;
+    text-justify: inter-word;
     p {
-      text-align: left !important;
+      text-align: justify !important;
+      text-justify: inter-word;
     }
     img {
-      border-radius: 50%;
       width: 3rem;
     }
     .info {
@@ -247,7 +250,9 @@
     width: 100%;
   } // posts
   .job-tips {
-    width: 200pt;
+    width: 240px;
+    min-width: 180px;
+    max-width: 300px;
     margin: 1rem;
     border-radius: $radius;
     background-color: rgb(236, 242, 245);

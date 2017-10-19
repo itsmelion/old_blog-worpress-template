@@ -8,10 +8,10 @@
           class="layout-row-nowrap-<?php echo get_sub_field('reverse') ? 'reverse' : ''; ?> dual"
           style="color:<?php echo get_sub_field('font_color_override');  ?>"
         >
-					<article class="flex layout-column">
+					<article class="flex-start layout-column">
 						<h2><?php the_sub_field('title'); ?></h2>
 						<p><?php the_sub_field('paragraph'); ?></p>
-						<a href="<?php the_sub_field('call_to_action-URL'); ?>"><?php the_sub_field('call_to_action-text'); ?></a>
+						<a class="button" href="<?php the_sub_field('call_to_action-URL'); ?>"><?php the_sub_field('call_to_action-text'); ?></a>
 					</article>
 					<?php $image = get_sub_field('img'); ?>
 					<div class="dual-img-container"><img class="flex" src="<?php echo $image['url']; ?>" alt="<?php $image['alt']; ?>" /></div>
@@ -48,8 +48,8 @@
                 <div class="layout-row-forcenowrap-center">
                   <img src="<?php echo $img['url'] ?>" />
                   <div class="info">
-                  <h3><?php the_sub_field('info_title') ?></h3>
-                  <h4><?php the_sub_field('info_sub') ?></h4>
+                    <h3><?php the_sub_field('info_title') ?></h3>
+                    <h4><?php the_sub_field('info_sub') ?></h4>
                   </div>
                 </div>
                 <p><?php the_sub_field('paragraph') ?></p>
@@ -87,10 +87,11 @@
 
           </div>
 
-              <?php if(get_field('cta-text')): ?>
-                <a href="<?php the_field('cta-url') ?>"><?php the_field('cta-text') ?></a>
-              <?php endif; ?>
-              
+          <?php if(get_field('cta-url')): ?>
+            <div class="layout-row-center">
+            <a class="button" href="<?php the_field('cta-url') ?>"><?php the_field('cta-text') ?></a>
+            </div>
+          <?php endif; ?>
         </section>
         
       <?php endif; ?> <!-- End Items -->

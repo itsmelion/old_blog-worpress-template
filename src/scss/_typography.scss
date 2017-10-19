@@ -54,26 +54,20 @@ h6 {
     font-family: 'Montserrat', 'Open Sans', sans-serif;
     line-height: 1.4;
     margin: 0;
-    font-weight: bolder;
+    font-weight: normal;
 }
 
 h1 {
     @include font-size(2.2);
-    font-size: 3.5vw;
     letter-spacing: -.05em;
-    @media screen and (max-width: 840px) {
-        font-size: 8vw;
-    }
+    margin-bottom: 2rem;
+    font-weight: 200;
 }
 
 h2 {
-    @include font-size(2);
-    font-size: 2.5vw;
+    @include font-size(1.8);
     letter-spacing: -.05em;
-    font-weight: lighter;
-    @media screen and (max-width: 840px) {
-        font-size: 6vw;
-    }
+    font-weight: 300;
 }
 
 h3 {

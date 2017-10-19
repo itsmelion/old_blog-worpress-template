@@ -1,16 +1,23 @@
 .ghost-nav {
-  height: 48pt;
+  height: 64px;
 }
 
 nav {
   list-style: none;
-  background: whitesmoke;
-  padding-right: 24pt;
+  background: white;
+  padding-right: 36px;
   @include shadow;
   @include transition;
   position: fixed;
   width: 100%;
   z-index: 1100;
+  .button {
+    @include outline-button($main-color);
+    padding: .6rem 1.2rem;
+    font-size: 100%;
+    text-transform: none;
+    box-shadow: none;
+  }
   .menu {
     >li {
       margin-right: 1rem;
@@ -27,10 +34,10 @@ nav {
     display: block;
     height: 100%;
     width: 100%;
-    padding: 12pt 16pt;
+    padding: 12px 24px;
     position: relative;
     color: $color;
-    font-size: 110%;
+    font-size: 105%;
     &:visited {
       color: lighten($color, 10%);
     }
@@ -42,7 +49,7 @@ nav {
 
 .menu-item-has-children {
   position: relative;
-  padding-right: 18pt;
+  padding-right: 24px;
   &:hover::after,
   &:focus::after {
     opacity: .2;
@@ -50,17 +57,17 @@ nav {
   &:after {
     transition: opacity .2s;
     content: '';
-    width: 20pt;
-    height: 20pt;
+    width: 24px;
+    height: 24px;
     display: block;
     background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iNTEycHgiIGlkPSJMYXllcl8xIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgd2lkdGg9IjUxMnB4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cG9seWdvbiBwb2ludHM9IjM5Ni42LDE2MCA0MTYsMTgwLjcgMjU2LDM1MiA5NiwxODAuNyAxMTUuMywxNjAgMjU2LDMxMC41ICIvPjwvc3ZnPg==");
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    right: 4pt;
+    right: 6px;
     top: 50%;
     opacity: .1;
-    margin-top: -10pt;
+    margin-top: -12px;
   }
 }
 
@@ -68,7 +75,7 @@ nav {
 .sub-menu {
   display: none;
   z-index: 1000;
-  margin-top: .25rem;
+  margin-top: -8px;
   @include transition;
 }
 
@@ -86,8 +93,11 @@ nav {
     max-width: 250pt;
     min-width: 190pt;
     border-bottom: 1pt solid rgba(black, .05);
+    &:first-of-type {
+      margin-top: 24px;
+    }
     &:hover {
-      background-color: rgba(black, .05)
+      background-color: rgba(black, .025)
     }
     a {
       display: block;
@@ -103,7 +113,7 @@ nav {
   flex: 0 1 50%;
   @media #{$grid-sm} {
     img {
-      height: 21pt;
+      height: 24px;
       width: auto;
       min-width: 48pt;
     }

@@ -1,6 +1,28 @@
 $color: #516377;
+$main-color:#45ACCF;
 html,
 body {
   color: $color;
   font-family: 'Montserrat', 'Open Sans', sans-serif;
+}
+
+a[href]:not(.button) {
+  color: $main-color;
+  &:hover {
+    color: lighten($main-color, 20%);
+  }
+}
+
+@mixin outline-button($main-color) {
+  background-color: transparent;
+  color: $main-color;
+  border: 2px solid $main-color;
+  transition: .3s ease;
+  &:visited {
+    color: $main-color;
+  }
+  &:hover {
+    background-color: $main-color;
+    color: white;
+  }
 }
