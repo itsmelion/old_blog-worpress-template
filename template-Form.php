@@ -1,4 +1,4 @@
-<?php /* Template Name: Internal + Form */ 
+<?php /* Template Name: Form */ 
 
 get_header();
 $desktop = get_field('background_image_desktop');
@@ -41,36 +41,29 @@ endif;
 
 <?php get_template_part('loop', 'destinations'); ?>
 
-<section class="layout-row-nowrap">
- <div class="layout-column-center"><?php the_content() ?></div>
- <ol class="layout-column-nowrap form-list">
+<section class="layout-row-nowrap" id="formSection">
+  <div class="flex-50 layout-column-center"><?php the_content() ?></div>
+  <ol class="flex-50 layout-column-nowrap form-list">
 
- <li class="layout-row-start-forcenowrap icon-item">
- <img class="flex-initial" src="<?php echo $img['url'] ?>" />
- <div>
-   <h3>Info title</h3>
-   <h4>imerse growth exp</h4>
-   <p>asdasd asdasdas asdasdasd asdasdasd asdasd</p>
- </div>
-</li>
-<li class="layout-row-start-forcenowrap icon-item">
-  <img class="flex-initial" src="<?php echo $img['url'] ?>" />
-  <div>
-    <h3>Info title</h3>
-    <h4>imerse growth exp</h4>
-    <p>asdasd asdasdas asdasdasd asdasdasd asdasd</p>
-  </div>
-</li>
-<li class="layout-row-start-forcenowrap icon-item">
-  <img class="flex-initial" src="<?php echo $img['url'] ?>" />
-  <div>
-    <h3>Info title</h3>
-    <h4>imerse growth exp</h4>
-    <p>asdasd asdasdas asdasdasd asdasdasd asdasd</p>
-  </div>
-</li>
+    <?php
+      if( have_rows('form_fields') ):
+        while ( have_rows('form_fields') ) : the_row();
+          $img = get_sub_field('item-img');
+    ?>
+          <li class="layout-row-start-forcenowrap icon-item">
+            <img class="flex-initial" src="<?php echo $img; ?>" />
+            <div>
+              <h3><?php the_sub_field('item_title'); ?></h3>
+              <h4><?php the_sub_field('item_subtitle'); ?></h4>
+              <p><?php the_sub_field('item_paragraph'); ?></p>
+            </div>
+          </li>
+    <?php
+        endwhile;
+      endif;
+    ?>
 
- </ol>
+  </ol>
 </section>
 
 <?php include 'src/components/flex-internal.php'; ?>

@@ -13,6 +13,11 @@ a[href]:not(.button) {
   }
 }
 
+.text-bold {
+  font-weight: bolder;
+  letter-spacing: .1rem;
+}
+
 @mixin outline-button($main-color) {
   background-color: transparent;
   color: $main-color;

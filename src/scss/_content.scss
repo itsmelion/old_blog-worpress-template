@@ -5,7 +5,7 @@
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  font-weight: 100;
+  font-weight: 200;
   color: white;
   min-height: 78vh;
 }
@@ -16,19 +16,14 @@
 
 .destinations-header {
   background: #f5f5f5;
-  height: 400px;
-  height: 60vh;
+  min-height: 500px;
+  min-height: 60vh;
   article {
     width: 50%;
     padding: 3rem;
     @media #{$grid-sm} {
       width: 100%;
     }
-  }
-  .dual-img-container {
-    background: #e0e0e0;
-    display: flex;
-    width: 100%;
   }
 }
 
@@ -68,7 +63,7 @@
       border-radius: 0 $radius $radius 0;
       background-color: #1195C2;
       text-transform: uppercase;
-      font-weight: bold;
+      font-weight: 600;
       font-size: 200%;
     }
   }
@@ -95,7 +90,7 @@
     @include shadow;
   }
   h3 {
-    font-weight: bold;
+    font-weight: 600;
     color: $black5;
     margin-bottom: .5rem;
     font-size: 125%;
@@ -113,9 +108,15 @@
       width: 100%;
     }
   }
-  .dual-img-container {
-    position: relative;
-  }
+}
+
+.dual-img-container {
+  background: #e0e0e0;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 420px;
 }
 
 .icon-section {
@@ -124,7 +125,7 @@
   padding: 6rem 0 5rem 0;
   h2 {
     text-align: center;
-    font-weight: lighter;
+    font-weight: 300;
     margin-bottom: 3rem;
   }
   .icon-item {
@@ -167,7 +168,7 @@
       text-align: left;
       margin-left: 2rem;
       h3 {
-        font-weight: bold;
+        font-weight: 600;
         margin: 0;
         margin-bottom: .2rem;
         font-size: 100%;
@@ -181,24 +182,6 @@
   }
 }
 
-.form-list {
-  padding: 2rem;
-  .icon-item {
-    margin-bottom: 2rem;
-    h2,
-    h3,
-    h4,
-    h5,
-    p {
-      text-align: left;
-    }
-    img {
-      width: 5rem;
-      margin-right: 2rem;
-    }
-  }
-}
-
 .caroussel-section {
   position: relative;
   margin: 6rem 0 5rem 0;
@@ -206,7 +189,7 @@
   overflow: hidden;
   h2 {
     text-align: center;
-    font-weight: lighter;
+    font-weight: 300;
     margin-bottom: 3rem;
   }
   .slick-disabled {
@@ -287,7 +270,7 @@
       @include shadow;
     }
     h3 {
-      font-weight: bold;
+      font-weight: 600;
       color: $black5;
       margin: 1rem;
       font-size: 125%;
@@ -311,6 +294,7 @@
 
 .pricings-section {
   padding: 5rem 0;
+  background-color: #f5f5f5;
 }
 
 .price {
@@ -321,21 +305,22 @@
   width: auto;
   min-width: 230px;
   border-radius: 2*$radius;
+  background-color: white;
   @media #{$grid-sm} {
     max-width: 480px;
     width: 100%;
   }
   @include shadow;
   p {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.1rem;
   }
   h1 {
     font-size: 200%;
-    font-weight: lighter;
+    font-weight: 200;
   }
   .value {
     font-size: 280%;
-    font-weight: bold;
+    font-weight: 600;
     line-height: 1.2;
     margin: 1rem;
   }
@@ -347,7 +332,7 @@
   ol {
     list-style: circle;
     font-size: 90%;
-    line-height: 2;
+    line-height: 1.8;
     text-align: left;
   }
   a {
@@ -356,10 +341,10 @@
     display: block;
     background-color: rgb(73, 199, 161);
     line-height: 1;
-    width: 180pt;
+    width: 200px;
     left: 50%;
-    margin-left: -90pt;
+    margin-left: -100px;
     position: absolute;
-    bottom: -1.5rem;
+    bottom: -19px;
   }
 }

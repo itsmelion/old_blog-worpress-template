@@ -14,14 +14,11 @@
 		<ul class="footer-links text-right">
 			<li>SOCIAL</li>
 			<li class="social">
-				<a href="#" title="Map">
-					<img src="<?php echo get_bloginfo('template_url') ?>/build/images/icon-map.svg" alt="Mapa"/>
-				</a>
 				<a href="#" title="Facebook">
 					<img src="<?php echo get_bloginfo('template_url') ?>/build/images/icon-facebook.svg" alt="Facebook"/>
 				</a>
-				<a href="#" title="Instagram">
-					<img src="<?php echo get_bloginfo('template_url') ?>/build/images/icon-instagram.svg" alt="Instagram"/>
+				<a href="#" title="LinkedIn">
+					<img src="<?php echo get_bloginfo('template_url') ?>/build/images/linkedin.svg" alt="LinkedIn"/>
 				</a>
 				<a href="#" title="YouTube">
 					<img src="<?php echo get_bloginfo('template_url') ?>/build/images/icon-play.svg" alt="YouTube"/>

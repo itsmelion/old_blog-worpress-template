@@ -6,7 +6,8 @@
     <p><?php the_field('paragraph'); ?></p>
   </article>
   <?php $image = get_field('region-image'); ?>
-  <div class="dual-img-container"><img class="flex" src="<?php echo $image; ?>" alt="Region Image" /></div>
+  <div class="dual-img-container" style="background-image: url('<?php echo $image; ?>');"></div>
+  
 </section>
 
 <?php get_template_part('loop', 'tips'); ?>

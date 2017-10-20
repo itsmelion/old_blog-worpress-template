@@ -11,6 +11,9 @@ nav {
   position: fixed;
   width: 100%;
   z-index: 1100;
+  @media #{$grid-sm} {
+    padding-right: 0;
+  }
   .button {
     @include outline-button($main-color);
     padding: .6rem 1.2rem;
@@ -50,6 +53,9 @@ nav {
 .menu-item-has-children {
   position: relative;
   padding-right: 24px;
+  >a {
+    pointer-events: none;
+  }
   &:hover::after,
   &:focus::after {
     opacity: .2;
