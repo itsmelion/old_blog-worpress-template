@@ -10,8 +10,15 @@
   min-height: 78vh;
 }
 
-.post {
-  padding: 1rem;
+header.default {
+  position: relative;
+  background-color: $color;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-weight: 200;
+  color: white;
+  min-height: 60vh;
 }
 
 .destinations-header {
@@ -54,11 +61,11 @@
     }
     img {
       @include transition;
-      width: 60pt;
+      width: 48px;
       margin: 0 .5rem;
     }
     span {
-      padding: 2rem;
+      padding: 1.25rem 2rem;
       @include transition;
       border-radius: 0 $radius $radius 0;
       background-color: #1195C2;
@@ -132,8 +139,7 @@
     margin: 2rem;
     padding: .5rem;
     min-width: 180px;
-    width: 210pt;
-    max-width: 320px;
+    max-width: 360px;
     @media #{$grid-sm} {
       margin: 1rem;
       width: auto;
@@ -149,9 +155,15 @@
     p {
       text-align: justify !important;
       text-justify: inter-word;
+      max-width: 100%;
+      word-wrap: break-word;
     }
   }
+  article>div {
+    margin-bottom: 1rem;
+  }
   >div {
+    max-width: 100%;
     align-items: flex-start !important;
     align-content: flex-start !important;
     margin: 1rem 0;
@@ -346,5 +358,65 @@
     margin-left: -100px;
     position: absolute;
     bottom: -19px;
+  }
+}
+
+.faq {
+  padding: 3rem 10%;
+  h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  li {
+    list-style: none;
+    width: 100%;
+    .collapse-content {
+      padding: 2rem;
+      transition: 200ms ease-in-out;
+      max-height: 500px;
+      opacity: 1;
+    }
+    .collapses {
+      padding: 1rem;
+      width: 100%;
+      display: block;
+      border: 1px solid #eeeeee;
+      font-weight: 600;
+      cursor: pointer;
+      background-color: #fafafa;
+      position: relative;
+      i {
+        position: absolute;
+        right: .5rem;
+        width: 36px;
+        height: 36px;
+        background: url('build/images/arrow.svg');
+        opacity: .5;
+        margin-top: -.4rem;
+        transform-origin: center center;
+        transition: transform .2s;
+        transform: rotate(-90deg);
+      }
+    }
+    &.collapsed {
+      .collapses {
+        background-color: #ffffff;
+        &:hover,
+        &:focus {
+          background-color: #fafafa;
+        }
+        i {
+          transform: rotate(0deg);
+        }
+      }
+      .collapse-content {
+        overflow: auto;
+        padding: 0 2rem;
+        visibility: hidden;
+        opacity: 0;
+        max-height: 10px;
+      }
+    }
   }
 }

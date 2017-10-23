@@ -66,6 +66,8 @@ endif;
   </ol>
 </section>
 
+<?php include 'src/components/faq.php'; ?>
+
 <?php include 'src/components/flex-internal.php'; ?>
 
 </main>

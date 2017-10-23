@@ -9,18 +9,20 @@
 		</a>
 	<?php endif; ?>
 	
-	<h3>
+	<h2>
 		<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-	</h3>
+	</h2>
 
-	<span class="date">
-				<time datetime="<?php the_time('Y-m-d'); ?> <?php the_time('H:i'); ?>">
-					<?php the_date(); ?> <?php the_time(); ?>
-				</time>
-			</span>
-		
-	<?php html5wp_excerpt('html5wp_index'); // Build your custom callback length in functions.php ?>
-
+  
+  <div class="entry">
+    <?php the_content(); ?>
+  </div>
+  
+  <span class="date">
+        <time datetime="<?php the_time('Y-m-d'); ?> <?php the_time('H:i'); ?>">
+          <?php the_date(); ?> <?php the_time(); ?>
+        </time>
+      </span>
 </article> 
 
 <?php endwhile; else : ?>

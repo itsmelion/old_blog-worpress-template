@@ -1,64 +1,81 @@
-<?php get_header(); ?>
- 
-<main id="main" role="main">
+<?php get_header();
 
-<?php
-// Start the loop.
-while ( have_posts() ) : the_post();
+if ( has_post_thumbnail() ) : ?>
+	<style>
+	.this-header{
+		background: url("<?php the_post_thumbnail_url(); ?>");
+	}
+	</style>
+<?php endif; ?>
 
-	/*
-		* Include the post format-specific template for the content. If you want to
-		* use this in a child theme, then include a file called called content-___.php
-		* (where ___ is the post format) and that will be used instead.
-		*/
-	?>
-	<h1>i am single temlpater</h1>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php
-	if ( is_sticky() && is_home() ) :
-		echo twentyseventeen_get_svg( array( 'icon' => 'thumb-tack' ) );
-	endif;
-	?>
-	<header class="entry-header">
-		<?php
-		if ( 'post' === get_post_type() ) {
-			echo '<div class="entry-meta">';
-				if ( is_single() ) {
-					twentyseventeen_posted_on();
-				} else {
-					echo twentyseventeen_time_link();
-					twentyseventeen_edit_link();
-				};
-			echo '</div><!-- .entry-meta -->';
-		};
 
-		if ( is_single() ) {
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		} elseif ( is_front_page() && is_home() ) {
-			the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
-		} else {
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		}
-		?>
-	</header><!-- .entry-header -->
+<header class="layout-column-center flex default this-header" role="banner">
+    <div class="flex layout-row-nowrap-center">
+		  <h1><?php the_title(); ?></h1>
+    </div>
 
-	<?php if ( '' !== get_the_post_thumbnail() && ! is_single() ) : ?>
-		<div class="post-thumbnail">
-			<a href="<?php the_permalink(); ?>">
-				<?php the_post_thumbnail( 'twentyseventeen-featured-image' ); ?>
-			</a>
-		</div><!-- .post-thumbnail -->
+</header>
+
+
+<div class="layout-row-nowrap">
+<main class="flex-grow blog-post-single" role="main" aria-label="Content">
+	<!-- section -->
+	<section class="contain">
+
+	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+
+		<!-- article -->
+		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		
+		<div><?php the_content(); // Dynamic Content ?></div>
+		
+		<div>
+			<?php the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
+			
+			<p><?php _e( 'Categorised in: ', 'html5blank' ); the_category(', '); // Separated by commas ?></p>
+			
+			<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
+				<?php if (comments_open( get_the_ID() ) ) comments_template(); ?>
+		</div>
+
+		</article>
+		<!-- /article -->
+
+	<?php endwhile; ?>
+
+	<?php else: ?>
+
+		<!-- article -->
+		<article>
+
+			<h1><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h1>
+
+		</article>
+		<!-- /article -->
+
 	<?php endif; ?>
 
+	</section>
+	<!-- /section -->
+	</main>
 
-</article><!-- #post-## -->
-	<?php 
-
-// End the loop.
-endwhile;
-?>
-
-</main><!-- .site-main -->
- 
+<?php get_sidebar(); ?>
+			</div>
 <?php get_footer(); ?>
+
+
+
+
+<div class="layout-row-nowrap">
+	<main class="flex-grow" role="main" aria-label="Content">
+
+		<?php include 'src/components/sections.php'; ?>
+
+		<div class="contain">
+		</div>
+
+
+	</main>
+
+	<?php get_sidebar(); ?>

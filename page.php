@@ -15,7 +15,7 @@ endif;
 </style>
 
 <?php if(!empty(get_field('background_image_desktop'))) : ?>
-<header id="front-page" class="layout-column-center flex this-header" role="banner">
+<header class="layout-column-center flex default this-header" role="banner">
     <div class="flex layout-row-nowrap-center">
 		  <h1><?php the_field('hero') ?></h1>
     </div>
@@ -40,15 +40,22 @@ endif;
 </header>
 <?php endif; ?>
 
-<main role="main" aria-label="Content">
+<div class="layout-row-nowrap">
+	<main class="flex-grow" role="main" aria-label="Content">
 
-<?php include 'src/components/sections.php'; ?>
+		<?php include 'src/components/sections.php'; ?>
 
-<section>
-<?php get_template_part('loop'); ?>
-</section>
+		<div class="contain">
+			<section class="page-default">
+			<?php get_template_part('loop', 'pages'); ?>
+			</section>
+		</div>
 
 
-</main>
+	</main>
+
+	<?php get_sidebar(); ?>
+
+</div>
 
 <?php get_footer(); ?>

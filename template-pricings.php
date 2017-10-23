@@ -41,6 +41,8 @@ endif;
 
 <?php get_template_part('loop', 'pricing'); ?>
 
+<?php include 'src/components/faq.php'; ?>
+
 <?php include 'src/components/sections-pricings.php'; ?>
 
 </main>

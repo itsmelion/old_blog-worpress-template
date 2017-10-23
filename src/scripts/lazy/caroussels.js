@@ -6,5 +6,15 @@ $('.slick-container').slick({
   nextArrow: '<button type="button" class="slick-next"></button>',
   variableWidth: true,
   adaptiveHeight: false,
-  centerMode: true
+  centerMode: true,
+  dots: false,
+  responsive: [{
+    breakpoint: 980,
+    settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      infinite: true,
+      dots: false
+    }
+  }]
 });

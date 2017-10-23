@@ -21,8 +21,6 @@ while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
 
  		<?php the_content(); ?>
 
-	 <?php edit_post_link(); ?>
-
  	</article>
 
  <?php endwhile; else : ?>
