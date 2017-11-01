@@ -11,30 +11,21 @@
 			</ul>
 		<?php endwhile; ?>
 
-		<ul class="footer-links text-right">
+		<ul class="footer-links social">
 			<li>SOCIAL</li>
-			<li class="social">
-				<a href="#" title="Facebook">
-					<img src="<?php echo get_bloginfo('template_url') ?>/build/images/icon-facebook.svg" alt="Facebook"/>
+			<li>
+				<a href="//www.facebook.com/PlanetExpat/" title="Facebook">
+					<img src="<?php echo get_bloginfo('template_url') ?>/build/images/social-facebook.svg" alt="Facebook"/>
 				</a>
-				<a href="#" title="LinkedIn">
-					<img src="<?php echo get_bloginfo('template_url') ?>/build/images/linkedin.svg" alt="LinkedIn"/>
+				<a href="//twitter.com/PlanetExpat" title="Twitter: @PlanetExpat">
+					<img src="<?php echo get_bloginfo('template_url') ?>/build/images/social-twitter.svg" alt="@PlanetExpat"/>
 				</a>
-				<a href="#" title="YouTube">
-					<img src="<?php echo get_bloginfo('template_url') ?>/build/images/icon-play.svg" alt="YouTube"/>
+				<a href="//www.linkedin.com/company/2949016/" title="LinkedIn">
+					<img src="<?php echo get_bloginfo('template_url') ?>/build/images/social-linkedin.svg" alt="LinkedIn"/>
 				</a>
 			</li>
 		</ul>
 		
-	</div>
-
-	<div>
-		<!-- copyright -->
-		<p class="copyright">
-					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'html5blank'); ?>
-					<a href="//intuite.ch">Intuitech</a> &amp; <a href="//alia-cloud.appspot.com">Christhopher Lion</a>.
-				</p>
-				<!-- /copyright -->
 	</div>
 
  </footer>

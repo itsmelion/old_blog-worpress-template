@@ -128,7 +128,7 @@ header.default {
 
 .icon-section {
   background-repeat: no-repeat;
-  background-size: cover !important;
+  background-size: cover;
   padding: 6rem 0 5rem 0;
   h2 {
     text-align: center;
@@ -136,24 +136,23 @@ header.default {
     margin-bottom: 3rem;
   }
   .icon-item {
-    margin: 2rem;
-    padding: .5rem;
-    min-width: 180px;
-    max-width: 360px;
+    padding: 1.5rem;
+    min-width: 10rem;
+    max-width: 25rem;
+    width: 33%;
     @media #{$grid-sm} {
-      margin: 1rem;
       width: auto;
     }
     h3 {
-      margin: 1.5rem 0 1rem 0;
+      margin: 2rem 0 1rem 0;
       font-size: 125%;
     }
     img {
-      max-width: 128pt;
-      max-height: 128pt;
+      max-width: 8rem;
+      max-height: 8rem;
     }
     p {
-      text-align: justify !important;
+      text-align: justify;
       text-justify: inter-word;
       max-width: 100%;
       word-wrap: break-word;
@@ -164,13 +163,13 @@ header.default {
   }
   >div {
     max-width: 100%;
-    align-items: flex-start !important;
-    align-content: flex-start !important;
+    align-items: flex-start;
+    align-content: flex-start;
     margin: 1rem 0;
-    text-align: justify !important;
+    text-align: justify;
     text-justify: inter-word;
     p {
-      text-align: justify !important;
+      text-align: justify;
       text-justify: inter-word;
     }
     img {
@@ -188,6 +187,7 @@ header.default {
       h4 {
         font-weight: 300;
         font-size: 80%;
+        opacity: .5;
         font-style: oblique;
       }
     }
@@ -291,16 +291,28 @@ header.default {
 }
 
 .pe-news {
-  padding: 2rem;
+  background-color: #f5f5f5;
   h5 {
     color: $black3;
+    padding: 2rem 0 1rem 0;
   }
-  background-color: #f5f5f5;
-  li {
-    width: 128pt;
-    max-height: 120pt;
-    margin-top: 1.5rem;
-    margin-right: 1.5rem;
+  ul {
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 1rem;
+    @media #{$grid-sm} {
+      overflow-x: auto;
+      li {
+        display: table-cell;
+      }
+    }
+    li {
+      display: inline-block;
+      min-width: 80pt;
+      max-width: 128pt;
+      max-height: 120pt;
+      padding-right: 1rem;
+    }
   }
 }
 

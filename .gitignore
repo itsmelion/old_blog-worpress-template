@@ -29,5 +29,7 @@ build/
 ./style.css
 ./styles.css
 
+**/.DS_Store
+
 yarn.lock
 package-lock.json

@@ -1,52 +1,58 @@
 .ghost-nav {
-  height: 64px;
+  height: 3.5rem;
 }
 
 nav {
   list-style: none;
   background: white;
-  padding-right: 36px;
+  padding: 0 36px;
   @include shadow;
-  @include transition;
   position: fixed;
   width: 100%;
-  z-index: 1100;
+  z-index: 999;
   @media #{$grid-sm} {
     padding-right: 0;
   }
   .button {
-    @include outline-button($main-color);
-    padding: .6rem 1.2rem;
+    padding: 12px 18px;
     font-size: 100%;
     text-transform: none;
     box-shadow: none;
+    &.outline {
+      background-color: transparent;
+      transition: .3s ease;
+      &:hover {
+        color: white;
+      }
+    }
   }
   .menu {
     >li {
-      margin-right: 1rem;
-      display: inline-flex;
-      flex-direction: row;
-      border-radius: $radius;
+      margin-right: .5rem;
+      position: relative;
       @include transition;
       &:hover {
         background-color: rgba(black, .05);
       }
-    }
-  }
-  a {
-    display: block;
-    height: 100%;
-    width: 100%;
-    padding: 12px 24px;
-    position: relative;
-    color: $color;
-    font-size: 105%;
-    &:visited {
-      color: lighten($color, 10%);
+      a {
+        display: flex;
+        padding: 24px;
+        width: 100%;
+        height: 100%;
+        white-space: nowrap;
+        position: relative;
+        color: $color;
+        line-height: 1;
+        font-size: 100%;
+        &:visited {
+          color: lighten($color, 10%);
+        }
+      }
     }
   }
   .current-menu-item {
     background-color: rgba(black, .05);
+    border-bottom: 1px solid $main-color;
   }
 }
 
@@ -80,7 +86,7 @@ nav {
 .drop-element,
 .sub-menu {
   display: none;
-  z-index: 1000;
+  z-index: 998;
   margin-top: -8px;
   @include transition;
 }
@@ -116,14 +122,22 @@ nav {
 }
 
 .menu-logo {
-  flex: 0 1 50%;
-  @media #{$grid-sm} {
+  a {
+    height: 100%;
+    display: flex;
+    position: relative;
     img {
-      height: 24px;
+      position: relative;
+      height: 2rem;
+      margin-top: 1rem;
+      margin: auto 0;
       width: auto;
-      min-width: 48px;
     }
   }
+}
+
+.mobile-menu-toggle {
+  padding: .8rem 1.5rem;
 }
 
 .overlay {

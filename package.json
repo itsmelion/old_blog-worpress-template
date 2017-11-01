@@ -21,10 +21,10 @@
     "photoswipe": "latest",
     "popper.js": "^1.12.6",
     "slick-carousel": "^1.8.1",
+    "vanilla-lazyload": "^10.3.3",
     "tether": "^1.4.0",
     "tether-drop": "^1.4.2",
-    "tether-tooltip": "^1.2.0",
-    "vanilla-lazyload": "^10.3.3"
+    "tether-tooltip": "^1.2.0"
   },
   "devDependencies": {
     "@cedx/gulp-php-minify": "^7.0.1",
