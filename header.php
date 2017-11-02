@@ -86,16 +86,6 @@
             );
             wp_nav_menu( $args );
         ?>
-        <?php #while( have_rows('nav-cta', 'option') ): the_row(); ?>
-
-
-
-
-
-
-
-
-
         <?php
             $row = get_field('nav-cta', 'option');
             foreach ($row as $key => $value) {
@@ -116,32 +106,16 @@
         ?>
             
             <li class="flex-none show-lg hide-sm">
-                <a  
-                    <?php echo $style; ?>
-                    class="button"
-                    href="<?php echo $value['url'] ;?>"
-                >
-                    <?php echo $key;?><?php echo $value['text'] ;?>
+                <a <?php echo $style; ?> class="button scroll-cta" href="<?php echo $value['url'] ;?>" >
+                    <?php echo $value['text'] ;?>
                 </a>
             </li>
 
         <?php } ?>
 
-
-
-
-
-
-
-
-
-
-
-            
-
         <span class="flex-noshrink hide-lg show-sm"></span>
         <li class="flex-none hide-lg show-sm mobile-menu-toggle">
-            <a href="#bottom-sheet">
+            <a href="#bottom-sheet" onclick="scrollLock(true)">
                 <img src="<?php echo get_bloginfo('template_url') ?>/build/images/hamburguer.svg" alt="<?php bloginfo( 'name' ); ?>" />
             </a>
         </li>
@@ -169,7 +143,7 @@
         );
       wp_nav_menu( $args );
     ?>
-                <a href="#close" class="btn-close" aria-hidden="true">
+                <a onclick="scrollLock(false)" href="#close" class="btn-close" aria-hidden="true">
                     <span class="mdi mdi-close">close</span>
                 </a>
         </aside>

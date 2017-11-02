@@ -1,13 +1,3 @@
-<?php
-/**
- * sense template for displaying an empty Loop
- *
- * @package WordPress
- * @subpackage sense
- * @since sense 1.0
- */
-?>
-
 <article id="post-none" class="post empty">
 
 	<h1 class="post-title"><?php _e( 'Nothing Found', 'sense' ); ?></h1>

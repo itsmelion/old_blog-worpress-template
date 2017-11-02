@@ -1,5 +1,5 @@
 <!-- sidebar -->
-<aside class="sidebar" class="layout-column-nowrap widget-area" role="complementary">
+<aside class="flex-none layout-column sidebar" class="layout-column-nowrap widget-area" role="complementary">
 
 	<?php get_template_part('searchform'); ?>
 

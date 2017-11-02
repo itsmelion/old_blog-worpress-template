@@ -32,7 +32,29 @@ endif;
 
 <?php include 'src/components/sections.php'; ?>
 
-<?php get_template_part('loop', 'tips'); ?>
+<ul>
+<?php $the_query = new WP_Query( 'posts_per_page=5' ); ?>
+ 
+<?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
+
+<?php if ( has_post_thumbnail()) :  ?>
+		<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+			<?php the_post_thumbnail(array(120,120)); // Declare pixel size you need inside the array ?>
+		</a>
+	<?php endif; ?>
+ 
+<li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
+ 
+ 
+// Repeat the process and reset once it hits the limit
+<?php 
+endwhile;
+wp_reset_postdata();
+?>
+</ul>
+
+
+<!-- get_template_part('loop', 'tips'); -->
 
 <section class="layout-column text-center icon-section" style="background: <?php get_field('testimonial_background_color') ? ''.the_field('testimonial_background_color') : ''.the_field('testimonial_background_image') ?>; color:<?php the_field('testimonial_font_color_override');  ?>">
 

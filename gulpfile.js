@@ -33,6 +33,7 @@ const buildInclude = [
 const gulp = require('gulp');
 const autoprefixer = require('autoprefixer');
 const browserSync = require('browser-sync').create();
+const browserify = require('browserify');
 const postcss = require('gulp-postcss');
 const del = require('del');
 const mqpacker = require('css-mqpacker');

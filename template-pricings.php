@@ -39,7 +39,7 @@ endif;
 
 <?php include 'src/components/sections.php'; ?>
 
-<?php get_template_part('loop', 'pricing'); ?>
+<?php get_template_part('loop', 'pricing-coaching'); ?>
 
 <?php include 'src/components/faq.php'; ?>
 

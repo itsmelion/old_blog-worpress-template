@@ -1,11 +1,75 @@
+// .footer-form {
+//   padding: 2rem;
+//   background-color: lighten(#2d3e50, 5%);
+//   color: $white7;
+//   input {
+//     background-color: $black3;
+//     border: none;
+//     color: white;
+//     padding: .8rem 1rem;
+//     margin-right: 1rem;
+//     border-radius: $radius;
+//   }
+//   button {
+//     padding: .8rem 1rem;
+//     line-height: 1;
+//     border: none;
+//     text-transform: none;
+//     font-size: .8rem;
+//   }
+//   h2 {
+//     margin-bottom: 2rem;
+//     text-align: center;
+//     width: 100%;
+//   }
+// }
+.footer-form {
+  padding: 2rem;
+  padding-top: 3rem;
+  background-color: lighten(#2d3e50, 5%);
+  color: $white7;
+  input,
+  textarea {
+    box-shadow: none;
+    background-color: $black3;
+    border: none;
+    color: white;
+    padding: .8rem 1rem;
+    font-size: .8rem;
+    line-height: 1.6;
+    margin-right: 1rem;
+    border-radius: $radius;
+  }
+  label {
+    font-size: .7rem;
+  }
+  .wpcf7-submit {
+    padding: 1rem 1rem;
+    line-height: 1;
+    background-color: lighten($main-color, 20%);
+    border: none;
+    text-transform: none;
+    cursor: pointer;
+    font-size: .8rem;
+  }
+  h2 {
+    margin-bottom: 2rem;
+    text-align: center;
+    width: 100%;
+  }
+}
+
 footer {
   background: #2d3e50;
   color: $white7;
-  padding: 5rem 3rem 0 3rem;
 }
 
 .footer-links {
-  margin-bottom: 3rem;
+  margin: 0 1rem;
+  margin-top: 3rem;
+  @media #{$grid-sm} {
+    padding: 1rem 2rem;
+  }
   li:first-child {
     color: $white5;
     font-weight: lighter;
@@ -22,24 +86,45 @@ footer {
       color: $white5;
     }
   }
-  &.social {
-    text-align: right;
+}
+
+.brand {
+  margin-top: 3rem;
+  margin-left: 2rem;
+  li {
+    list-style: none;
+  }
+  a {
+    margin-right: .8rem;
+  }
+  .pe-footer-logo {
+    width: 100%;
+    text-align: center;
+    height: 2rem;
     a {
-      width: 2.5rem;
+      display: inline-block;
+      height: 2rem;
+    }
+    img {
+      height: 2rem;
+      display: inline;
+    }
+  }
+  .social {
+    margin-top: 1rem;
+    a {
+      width: 2rem;
       display: inline-block;
       img {
         display: inline;
         position: relative;
-        max-width: 2.5rem;
-        max-height: 2.5rem;
+        max-width: 1.8rem;
+        max-height: 1.8rem;
       }
     }
-    @media #{$grid-sm} {
-      text-align: center;
-      width: 100%;
-      a {
-        margin-right: .8rem;
-      }
-    }
+  }
+  @media #{$grid-sm} {
+    text-align: center;
+    width: 100%;
   }
 }
