@@ -28,6 +28,10 @@
   padding-top: 3rem;
   background-color: lighten(#2d3e50, 5%);
   color: $white7;
+  @media #{$grid-sm} {
+    width: 100%;
+    padding: 3rem 10%;
+  }
   input,
   textarea {
     box-shadow: none;

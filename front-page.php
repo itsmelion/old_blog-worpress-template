@@ -32,27 +32,20 @@ endif;
 
 <?php include 'src/components/sections.php'; ?>
 
-<ul>
-<?php $the_query = new WP_Query( 'posts_per_page=5' ); ?>
- 
-<?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
-
-<?php if ( has_post_thumbnail()) :  ?>
-		<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-			<?php the_post_thumbnail(array(120,120)); // Declare pixel size you need inside the array ?>
-		</a>
-	<?php endif; ?>
- 
-<li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
- 
- 
-// Repeat the process and reset once it hits the limit
-<?php 
-endwhile;
+<section id="posts5" class="layout-row-between">
+  <h2>Carrer tips</h2>
+<?php $the_query = new WP_Query( 'posts_per_page=5' );while ($the_query -> have_posts()) : $the_query -> the_post(); $img_url = get_the_post_thumbnail_url(get_the_ID(),'thumbnail'); ?>
+<article class="posts-home layout-row-forcenowrap">
+    <span class="thumb" style="background-image: url('<?php echo $img_url; ?>');"></span>
+    <div class="caption">
+      <h3><?php the_title(); ?></h3>
+      <?php html5wp_excerpt('html5wp_index'); ?>
+    </div>
+</article>
+<?php endwhile;
 wp_reset_postdata();
 ?>
-</ul>
-
+</section>
 
 <!-- get_template_part('loop', 'tips'); -->
 
@@ -62,7 +55,7 @@ wp_reset_postdata();
     <h2><?php the_field('testimonial_section_title'); ?></h2>
   <?php endif;?>
 
-  <div class="layout-row">
+  <div class="layout-row-around">
   <?php if( have_rows('testimonial') ): while ( have_rows('testimonial') ) : the_row(); ?>
         
         <article class="layout-column-center text-left icon-item">

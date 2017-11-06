@@ -105,7 +105,7 @@
                 }
         ?>
             
-            <li class="flex-none show-lg hide-sm">
+            <li class="flex-none show-lg hide-sm scroll-cta-div">
                 <a <?php echo $style; ?> class="button scroll-cta" href="<?php echo $value['url'] ;?>" >
                     <?php echo $value['text'] ;?>
                 </a>

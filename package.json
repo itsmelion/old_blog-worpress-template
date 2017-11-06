@@ -28,7 +28,7 @@
     "vanilla-lazyload": "^10.3.3"
   },
   "devDependencies": {
-    "@cedx/gulp-php-minify": "^7.0.1",
+    "@cedx/gulp-php-minify": "^7.1.0",
     "autoprefixer": "^7.1.6",
     "babel-core": "latest",
     "babel-generator": "latest",
@@ -53,7 +53,7 @@
     "gulp-notify": "latest",
     "gulp-postcss": "latest",
     "gulp-rename": "latest",
-    "gulp-rev": "latest",
+    "gulp-rev": "^8.1.0",
     "gulp-sass": "latest",
     "gulp-size": "latest",
     "gulp-sourcemaps": "latest",

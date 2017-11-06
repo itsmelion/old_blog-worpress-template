@@ -39,7 +39,7 @@
             <h2><?php the_sub_field('section_title') ?></h2>
           <?php endif;?>
 
-          <div class="layout-row">
+          <div class="layout-row-around">
           <?php if( have_rows('repeater') ):
               while ( have_rows('repeater') ) : the_row(); $img = get_sub_field('icon');  ?>
 
