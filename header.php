@@ -86,6 +86,7 @@
             );
             wp_nav_menu( $args );
         ?>
+        <div class="layout-row-end scroll-cta-div">
         <?php
             $row = get_field('nav-cta', 'option');
             foreach ($row as $key => $value) {
@@ -105,13 +106,15 @@
                 }
         ?>
             
-            <li class="flex-none show-lg hide-sm scroll-cta-div">
+            <li class="flex-none show-lg hide-sm">
                 <a <?php echo $style; ?> class="button scroll-cta" href="<?php echo $value['url'] ;?>" >
                     <?php echo $value['text'] ;?>
                 </a>
             </li>
 
         <?php } ?>
+        </div>
+        
 
         <span class="flex-noshrink hide-lg show-sm"></span>
         <li class="flex-none hide-lg show-sm mobile-menu-toggle">
@@ -149,4 +152,6 @@
         </aside>
     </div>
 
+
+    <div id="tetherTarget"></div>
     <span class="ghost-nav"></span>

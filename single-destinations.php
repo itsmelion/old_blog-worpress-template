@@ -10,9 +10,26 @@
   
 </section>
 
-<?php get_template_part('loop', 'tips'); ?>
+<?php include 'src/components/destinations-content.php'; ?>
 
-<section class="layout-row-center destinations-cta background parallax" data-img-width="1200" data-img-height="698" data-diff="300">
+<section id="posts5" class="layout-row-between">
+  <h2>Carrer tips</h2>
+<?php $the_query = new WP_Query( 'posts_per_page=3' );while ($the_query -> have_posts()) : $the_query -> the_post(); $img_url = get_the_post_thumbnail_url(get_the_ID(),'thumbnail'); ?>
+<article class="posts-home layout-row-forcenowrap">
+    <span class="thumb" style="background-image: url('<?php echo $img_url; ?>');"></span>
+    <div class="caption">
+      <h3><?php the_title(); ?></h3>
+      <?php html5wp_excerpt('html5wp_index'); ?>
+    </div>
+</article>
+<?php endwhile;
+wp_reset_postdata();
+?>
+</section>
+
+<!-- get_template_part('loop', 'tips'); -->
+
+<section class="layout-row-center destinations-cta background parallax" data-img-width="1200" data-img-height="698" data-diff="200">
 <form action="//planetexpat.org/join" rel="bookmark">
 <button class="layout-row-forcenowrap-center">
   <img src="<?php echo get_bloginfo('template_url') ?>/build/images/marker.svg"/>

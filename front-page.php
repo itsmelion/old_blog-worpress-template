@@ -34,7 +34,7 @@ endif;
 
 <section id="posts5" class="layout-row-between">
   <h2>Carrer tips</h2>
-<?php $the_query = new WP_Query( 'posts_per_page=5' );while ($the_query -> have_posts()) : $the_query -> the_post(); $img_url = get_the_post_thumbnail_url(get_the_ID(),'thumbnail'); ?>
+<?php $the_query = new WP_Query( 'posts_per_page=3' );while ($the_query -> have_posts()) : $the_query -> the_post(); $img_url = get_the_post_thumbnail_url(get_the_ID(),'thumbnail'); ?>
 <article class="posts-home layout-row-forcenowrap">
     <span class="thumb" style="background-image: url('<?php echo $img_url; ?>');"></span>
     <div class="caption">

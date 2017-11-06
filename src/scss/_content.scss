@@ -204,6 +204,44 @@ section.contain {
   }
 }
 
+.destinations-articles {
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 4rem 0 5rem 0;
+  h2 {
+    text-align: center;
+    font-weight: 300;
+    margin-bottom: 3rem;
+  }
+  .icon-item {
+    padding: 1.5rem;
+    min-width: 10rem;
+    max-width: 25rem;
+    width: 33%;
+    position: relative;
+    @include shadow;
+    margin-bottom: 1rem;
+    @media #{$grid-sm} {
+      width: auto;
+      max-width: 100%;
+    }
+    h3 {
+      margin: 2rem 0 1rem 0;
+      font-size: 125%;
+    }
+    img {
+      width: 95%;
+      max-height: 13rem;
+    }
+    p {
+      text-align: justify;
+      text-justify: inter-word;
+      max-width: 100%;
+      word-wrap: break-word;
+    }
+  }
+}
+
 .caroussel-section {
   position: relative;
   margin: 6rem 0 5rem 0;

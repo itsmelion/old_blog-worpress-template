@@ -1,13 +1,30 @@
+.scroll-cta-div {
+  width: 100%;
+  background-color: rgba(#fafafa, .95);
+  z-index: 998;
+  position: fixed;
+  top: 62px !important;
+  opacity: 0;
+  transition: opacity 1s;
+  @include shadow;
+  a {
+    padding: .5rem 1rem;
+    font-size: 12px;
+    margin: .5rem;
+    border: 1px solid transparent;
+    margin-right: 1rem;
+  }
+  &.tether-out-of-bounds {
+    opacity: 1;
+    position: fixed !important;
+    top: 62px !important;
+  }
+}
+
 .ghost-nav {
   height: 3.5rem;
   &.active {
     height: 20vh;
-    background: #000 !important;
-  }
-}
-
-.scroll-cta {
-  &.active {
     background: #000 !important;
   }
 }

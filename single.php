@@ -28,16 +28,7 @@ if ( has_post_thumbnail() ) : ?>
 		<!-- article -->
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		
-		<div><?php the_content(); // Dynamic Content ?></div>
-		
-		<div>
-			<?php the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
-			
-			<p><?php _e( 'Categorised in: ', 'html5blank' ); the_category(', '); // Separated by commas ?></p>
-			
-			<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
-				<?php if (comments_open( get_the_ID() ) ) comments_template(); ?>
-		</div>
+		<div><?php the_content(); ?></div>
 
 		</article>
 		<!-- /article -->
