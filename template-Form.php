@@ -44,8 +44,8 @@ endif;
 <?php get_template_part('loop', 'pricing-abroad'); ?>
 
 <section class="layout-row-nowrap" id="formSection">
-  <div class="flex-50 layout-column-center"><?php the_content() ?></div>
-  <ol class="flex-50 layout-column-nowrap form-list">
+  <div class="layout-column-center"><?php the_content() ?></div>
+  <ol class="layout-column-nowrap form-list">
 
     <?php
       if( have_rows('form_fields') ):
