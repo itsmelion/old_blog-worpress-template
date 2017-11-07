@@ -41,7 +41,6 @@ endif;
 
 <?php get_template_part('loop', 'destinations'); ?>
 
-<?php get_template_part('loop', 'pricing-abroad'); ?>
 
 <section class="layout-row-nowrap" id="formSection">
   <div class="layout-column-center"><?php the_content() ?></div>
@@ -68,6 +67,7 @@ endif;
   </ol>
 </section>
 
+<?php get_template_part('loop', 'pricing-abroad'); ?>
 <?php include 'src/components/faq.php'; ?>
 
 <?php include 'src/components/flex-internal.php'; ?>

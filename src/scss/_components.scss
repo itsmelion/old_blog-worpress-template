@@ -253,3 +253,18 @@ input[type="search"] {
     }
   }
 }
+
+#pricings-all-footer {
+  background-color: darken($ludcolor, 7%);
+  color: white;
+  text-align: center;
+  padding: 5rem 0;
+  h2 {
+    font-size: 2.1rem;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  a:first-of-type {
+    margin-right: 3rem;
+  }
+}
