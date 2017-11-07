@@ -6,6 +6,7 @@
     "../node_modules/flamework": false,
     "**/bower_components": true,
     "**/.tmp": true,
-    "../build": true
+    "../build": true,
+    "../expat": true
   }
 }
