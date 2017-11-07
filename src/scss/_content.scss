@@ -219,7 +219,6 @@ section.contain {
     max-width: 25rem;
     width: 33%;
     position: relative;
-    @include shadow;
     margin-bottom: 1rem;
     @media #{$grid-sm} {
       width: auto;

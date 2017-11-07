@@ -3,7 +3,7 @@
 
   <h2><?php the_field('faq_title'); ?></h2>
   <?php while ( have_rows('faq') ) : the_row(); ?>
-  <li class="item-collapsable collapsed">
+  <li class="item-collapsable">
     <span class="collapses">
       <?php the_sub_field('question'); ?>
       <i class="arrow"></i>
