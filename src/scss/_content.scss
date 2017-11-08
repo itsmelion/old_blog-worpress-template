@@ -40,44 +40,26 @@ iframe.job-board {
 }
 
 .destinations-cta {
-  padding: 15rem 0;
+  position: relative;
+  padding: 12rem 0;
   flex: 0 0 auto;
-  background-size: cover;
-  background: url('/wp-content/themes/expat/build/images/map.jpg');
-  button {
-    border-radius: $radius;
-    border: none;
-    background: white;
-    color: white;
-    padding: 0;
-    @include shadow;
-    cursor: pointer;
-    outline: none;
-    user-select: none;
-    &:hover {
-      span {
-        background-color: lighten(#1195C2, 6%);
-      }
-      img {
-        transform: scale(1.16) rotate(-7deg);
-        transition-duration: .2s;
-        transition-timing-function: ease-out;
-      }
-    }
-    img {
-      @include transition;
-      width: 48px;
-      margin: 0 .5rem;
-    }
-    span {
-      padding: 1.25rem 2rem;
-      @include transition;
-      border-radius: 0 $radius $radius 0;
-      background-color: #1195C2;
-      text-transform: uppercase;
-      font-weight: 600;
-      font-size: 200%;
-    }
+  >h2,
+  iframe {
+    z-index: 2;
+    position: relative;
+  }
+  .background.parallax {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background: url('/wp-content/themes/expat/build/images/map.jpg');
+  }
+  h2 {
+    margin-bottom: 3rem;
+    font-weight: bolder;
+    text-transform: uppercase;
   }
 }
 
@@ -239,6 +221,14 @@ section.contain {
       word-wrap: break-word;
     }
   }
+}
+
+.destination-jobs {
+  min-height: 600px;
+  min-height: 70vh;
+  width: 80%;
+  background-color: white;
+  @include shadow;
 }
 
 .caroussel-section {
