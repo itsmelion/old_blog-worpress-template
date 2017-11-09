@@ -10,7 +10,7 @@
   "scripts": {
     "start": "gulp serve",
     "prod": "gulp serve --production",
-    "compile": "gulp build --production && gulp gzip && gulp buildFiles"
+    "build": "gulp build --production && gulp gzip && gulp buildFiles"
   },
   "dependencies": {
     "flamework": "^1.1.3",
