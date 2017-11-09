@@ -28,14 +28,6 @@ if( function_exists('acf_add_options_page') ) {
         'menu_icon'     => 'dashicons-welcome-widgets-menus'
     ));
     
-    acf_add_options_page(array(
-        'page_title' 	=> 'General Settings',
-        'menu_title'	=> 'General Settings',
-        'menu_slug' 	=> 'general-settings',
-        'capability'	=> 'edit_posts',
-        'redirect'		=> false,
-        'menu_icon'     => 'dashicons-admin-multisite'
-    ));
 }
 
 /******************************************************************************\
@@ -46,42 +38,7 @@ if( function_exists('acf_add_options_page') ) {
 add_theme_support( 'post-thumbnails' );
 // add_theme_support( 'automatic-feed-links' );
 load_theme_textdomain('html5blank', get_template_directory() . '/languages');
-add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
-
-// Add Support for Custom Backgrounds - Uncomment below if you're going to use
-    /* add_theme_support('custom-background', array(
-        'default-color' => 'FFF',
-        'default-image' => get_template_directory_uri() . '/img/bg.jpg'
-    ));
-    */
-// Add Support for Custom Header - Uncomment below if you're going to use
-    /*add_theme_support('custom-header', array(
-    'default-image'          => get_template_directory_uri() . '/img/headers/default.jpg',
-    'header-text'            => false,
-    'default-text-color'     => '000',
-    'width'                  => 1000,
-    'height'                 => 198,
-    'random-default'         => false,
-    'wp-head-callback'       => $wphead_cb,
-    'admin-head-callback'    => $adminhead_cb,
-    'admin-preview-callback' => $adminpreview_cb
-    ));*/
-
-/**
- * Print custom header styles
- * @return void
- */
-function sense_custom_header() {
-	$styles = '';
-	if ( $color = get_header_textcolor() ) {
-		echo '<style type="text/css"> ' .
-				'html,body .site-header .logo .blog-name, .site-header .logo .blog-description .text-color {' .
-					'color: #' . $color . ' !important;' .
-				'}' .
-			 '</style>';
-	}
-}
-add_action( 'wp_head', 'sense_custom_header', 11 );
+add_theme_support('html5', array('search-form'));
 
 register_nav_menu( 'main-menu', __( 'Your sites main menu', 'menu' ) );
 
@@ -137,27 +94,6 @@ function html5blank_header_scripts()
         wp_enqueue_script('lazy');
     }
 }
-
-// Load HTML5 Blank conditional scripts
-function html5blank_conditional_scripts()
-{
-    if (is_page('pagenamehere')) {
-        // Conditional script(s)
-        wp_register_script('scriptname', get_template_directory_uri() . 'build/scripts/scriptname.js', array('jquery'), '1.0.0');
-        wp_enqueue_script('scriptname');
-    }
-}
-
-/**
- * Enqueue theme scripts
- * @return void
- */
-// function theme_enqueue_scripts() {
-// 	wp_enqueue_style( 'sense-styles', get_stylesheet_uri(), array(), '1.0' );
-// 	wp_enqueue_script( 'jquery' );
-//     wp_enqueue_script( 'default-scripts', get_template_directory_uri() . '/build/scripts/app.js', array(), '1.0', true );
-// }
-// add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts' );
 
 
 /******************************************************************************\
@@ -725,19 +661,3 @@ function pricing_cat( $post_ID ) {
    return $post_ID;
 }
 add_action( 'publish_post', 'pricing_cat' );
-
-/*------------------------------------*\
-    ShortCode Functions
-\*------------------------------------*/
-
-// Shortcode Demo with Nested Capability
-function html5_shortcode_demo($atts, $content = null)
-{
-    return '<div class="shortcode-demo">' . do_shortcode($content) . '</div>'; // do_shortcode allows for nested Shortcodes
-}
-
-// Shortcode Demo with simple <h2> tag
-function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 shortcode, allows for nesting within above element. Fully expandable.
-{
-    return '<h2>' . $content . '</h2>';
-}

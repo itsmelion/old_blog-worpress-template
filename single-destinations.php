@@ -13,16 +13,16 @@
 <?php include 'src/components/destinations-content.php'; ?>
 
 <!-- get_template_part('loop', 'tips'); -->
-
-<section class="layout-column-center destinations-cta" data-img-width="1200" data-img-height="698" data-diff="200">
-  <div class="background parallax"></div>
+<?php if(get_field('crm-opportunities')): ?>
+<section class="layout-column-center destinations-cta background parallax" data-img-width="1200" data-img-height="698" data-diff="200">
   <h2>Apply NOW for a job in <?php the_title() ?></h2>
 
-  <iframe class="destination-jobs" src="https://crm.planetexpat.org/ext_opportunities" frameborder="0">
+  <iframe class="destination-jobs" src="<?php the_field('crm-opportunities'); ?>" frameborder="0" class="job-board">
       <p>Your Browser is not cool. It Doesn't support iFrames</p>
   </iframe>
 
 </section>
+<?php endif; ?>
 
 <?php $other_destinations = get_field('other_destinations');
 	if( $other_destinations ): ?>
