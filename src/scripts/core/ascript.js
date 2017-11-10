@@ -1,19 +1,10 @@
 $(function () {
-    function scrollSpy() {
-        var spy;
-        var cta = $('.scroll-cta-div');
-        var nav = $('#tetherTarget');
-        new Tether({
-            element: cta,
-            target: nav,
-            attachment: 'bottom right',
-            targetAttachment: 'bottom right',
-            constraints: [{
-                to: 'window',
-                attachment: 'together',
-                pin: true
-            }]
-        });
+    var cta = $("#scroll-cta-div");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            cta.fadeIn(200);
+        } else {
+            cta.fadeOut(300);
+        }
     };
-    scrollSpy();
 });

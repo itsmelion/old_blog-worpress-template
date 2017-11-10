@@ -61,11 +61,11 @@
 
     <nav class="layout-row-nowrap-stretch main-menu" id="nav" role="navigation">
 
-        <li class="flex-none menu-logo">
+        <div class="flex-none menu-logo">
             <a title="<?php bloginfo( 'description' ); ?>" href="<?php echo home_url();?>">
                 <img src="<?php echo get_bloginfo('template_url') ?>/build/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" />
             </a>
-        </li>
+        </div>
         <span class="flex-grow show-lg hide-sm"></span>
 
         <?php $args = array(
@@ -86,7 +86,7 @@
             );
             wp_nav_menu( $args );
         ?>
-        <div class="scroll-cta-div layout-row-nowrap-end">
+        <div class="layout-row-nowrap-center" id="scroll-cta-div">
         <?php
             $row = get_field('nav-cta', 'option');
             foreach ($row as $key => $value) {

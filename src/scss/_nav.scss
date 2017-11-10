@@ -1,25 +1,9 @@
-.scroll-cta-div {
-  min-width: 300px;
-  z-index: 1000; 
-  opacity:0;
-  transition: opacity .3s;
-  margin-right: 1rem;
-  margin-top: 2px;
+#scroll-cta-div {
+  transition: opacity .3s; // margin: 1px;
   a {
-    padding: .4rem .8rem;
-    font-size: 12px;
-    border: 1px solid transparent;
-    margin-right: .8rem;
+    padding: 4px 21px;
+    line-height: 2;
   }
-  &.tether-out-of-bounds, &.tether-pinned {
-    opacity: 1;
-  }
-}
-
-#tetherTarget {
-  position: absolute;
-  top: 0;
-  right: 0;
 }
 
 .ghost-nav {
@@ -52,10 +36,9 @@ nav {
     }
   }
   .menu {
-    margin-right: 200px;
     >li {
       margin-right: .4rem;
-      position: relative;
+      position: relative; // display: flex;
       @include transition;
       &:hover {
         background-color: rgba(black, .05);

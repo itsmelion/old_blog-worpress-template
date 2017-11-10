@@ -84,8 +84,8 @@ function html5blank_header_scripts()
         wp_enqueue_style( 'core', get_stylesheet_uri(), array(), '1.0' );
 
         wp_register_script('vendors', get_template_directory_uri() . '/build/scripts/vendors.js', array(), '1.0.0', true);
-        wp_register_script('scrollspy-js', 'https://cdn.rawgit.com/makotot/scrollspy/master/build/scrollspy.js', array(), '1.6.0', true);
-        
+        wp_register_script('jquery-ui', '//code.jquery.com/ui/1.12.1/jquery-ui.min.js', false, '1.12.1', true);
+        wp_enqueue_script('jquery-ui');
         wp_register_script('app', get_template_directory_uri() . '/build/scripts/app.js', array(), '1.0.0', true);
         wp_register_script('lazy', get_template_directory_uri() . '/build/scripts/lazy.js', array(), '1.0.0', true);
         // Enqueue Scripts
