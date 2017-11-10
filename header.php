@@ -86,7 +86,7 @@
             );
             wp_nav_menu( $args );
         ?>
-        <div class="layout-row-end scroll-cta-div">
+        <div class="scroll-cta-div layout-row-nowrap-end">
         <?php
             $row = get_field('nav-cta', 'option');
             foreach ($row as $key => $value) {

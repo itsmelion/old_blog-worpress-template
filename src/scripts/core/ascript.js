@@ -11,7 +11,7 @@ $(function () {
             constraints: [{
                 to: 'window',
                 attachment: 'together',
-                moveElement: false
+                pin: true
             }]
         });
     };
