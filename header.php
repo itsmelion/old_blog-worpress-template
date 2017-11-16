@@ -86,25 +86,25 @@
             );
             wp_nav_menu( $args );
         ?>
-        <div class="layout-row-nowrap-center nav-dull-cta" id="scroll-cta-div" style="display: none">
-        <?php
-            $row = get_field('nav-cta', 'option');
-            foreach ($row as $key => $value) {
-                if($value['outline'] == false){
-                    $style = 'background:'.$value['color'];
-                }
-                else{
-                    $style = "
-                         onMouseOver='this.style.background=\"".$value['color']."\";this.style.color=\"white\"'
-                         onMouseOut='this.style.background=\"transparent\";this.style.color=\"".$value['color']."\"'
-                         style='
-                        background: transparent;
-                        border: 1pt solid ".$value['color'].";
-                        color:".$value['color'].";
-                        '
-                    ";
-                }
-        ?>
+        <div class="flex-none layout-row-forcenowrap-center nav-dull-cta" id="scroll-cta-div" style="display: none">
+            <?php
+                $row = get_field('nav-cta', 'option');
+                foreach ($row as $key => $value) {
+                    if($value['outline'] == false){
+                        $style = 'background:'.$value['color'];
+                    }
+                    else{
+                        $style = "
+                            onMouseOver='this.style.background=\"".$value['color']."\";this.style.color=\"white\"'
+                            onMouseOut='this.style.background=\"transparent\";this.style.color=\"".$value['color']."\"'
+                            style='
+                            background: transparent;
+                            border: 1pt solid ".$value['color'].";
+                            color:".$value['color'].";
+                            '
+                        ";
+                    }
+            ?>
             
             <li class="flex-none show-lg hide-sm">
                 <a <?php echo $style; ?> class="button scroll-cta" href="<?php echo $value['url'] ;?>" >
@@ -128,24 +128,24 @@
     <div id="bottom-sheet" class="overlay">
         <aside class="gaveta" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
             <?php
-      $args = array(
-        'menu'            => '',
-        'container'       => false,
-        'container_id'    => '',
-        'menu_class'      => 'menu flex',
-        'menu_id'         => '',
-        'echo'            => true,
-        'fallback_cb'     => 'wp_page_menu',
-        'before'          => '',
-        'after'           => '',
-        'link_before'     => '',
-        'link_after'      => '',
-        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-        'depth'           => 2,
-        'walker'          => ''
-        );
-      wp_nav_menu( $args );
-    ?>
+                $args = array(
+                    'menu'            => '',
+                    'container'       => false,
+                    'container_id'    => '',
+                    'menu_class'      => 'menu flex',
+                    'menu_id'         => '',
+                    'echo'            => true,
+                    'fallback_cb'     => 'wp_page_menu',
+                    'before'          => '',
+                    'after'           => '',
+                    'link_before'     => '',
+                    'link_after'      => '',
+                    'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                    'depth'           => 2,
+                    'walker'          => ''
+                    );
+                wp_nav_menu( $args );
+                ?>
                 <a onclick="scrollLock(false)" href="#close" class="btn-close" aria-hidden="true">
                     <span class="mdi mdi-close">close</span>
                 </a>

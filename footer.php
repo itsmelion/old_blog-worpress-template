@@ -7,7 +7,12 @@
 	</form>
 </section> -->
 
-
+<section class="wide-widget-area" role="complementary">
+		<?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-3')): ?>
+		<div class="widebar-widget">
+		</div>
+		<?php endif; ?>
+</section>
 
 <footer class="layout-column" role="contentinfo">
 

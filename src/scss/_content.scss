@@ -355,6 +355,9 @@ section.contain {
 .pricings-section {
   padding: 5rem 0;
   background-color: #f5f5f5;
+  .prices-container {
+    justify-content: center;
+  }
 }
 
 .price {
