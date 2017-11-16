@@ -8,5 +8,6 @@
     "**/.tmp": true,
     "**/build": true,
     "**/expat": true
-  }
+  },
+  "editor.formatOnSave": false
 }
