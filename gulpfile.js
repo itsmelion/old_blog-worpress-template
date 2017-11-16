@@ -1,6 +1,6 @@
 const project = 'Planet Expat'; // Project name, used for build zip.
 const appURL = 'http://expat.dev:7888/'; // Local Development URL for BrowserSync. Change as-needed.
-const build = './expat'; // Files that you want to package into a zip go here
+const build = './planetexpat'; // Files that you want to package into a zip go here
 const source = './src';
 const dist = './build';
 

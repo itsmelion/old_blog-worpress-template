@@ -54,7 +54,16 @@ endif;
 
 	</main>
 
-	<?php get_sidebar(); ?>
+	<!-- sidebar -->
+	<aside class="flex-none layout-column-nowrap widget-area sidebar" role="complementary">
+
+		<?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-2')): ?>
+		<div class="sidebar-widget">
+		</div>
+		<?php endif; ?>
+
+	</aside>
+	<!-- /sidebar -->
 
 </div>
 
