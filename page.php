@@ -54,7 +54,18 @@ endif;
 
 	</main>
 
-	<?php get_sidebar(); ?>
+	<!-- sidebar -->
+	<aside class="flex-initial layout-column-nowrap widget-area sidebar" role="complementary">
+
+		<?php // get_template_part('searchform'); ?>
+
+		<?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-1')): ?>
+		<div class="sidebar-widget">
+		</div>
+		<?php endif; ?>
+
+	</aside>
+	<!-- /sidebar -->
 
 </div>
 

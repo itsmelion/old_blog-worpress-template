@@ -1,5 +1,4 @@
-<!-- sidebar -->
-<aside class="flex-none layout-column sidebar" class="layout-column-nowrap widget-area" role="complementary">
+<aside class="flex-inital layout-column-nowrap widget-area sidebar" role="complementary">
 
 	<?php // get_template_part('searchform'); ?>
 
@@ -14,4 +13,3 @@
 	<?php endif; ?>
 
 </aside>
-<!-- /sidebar -->

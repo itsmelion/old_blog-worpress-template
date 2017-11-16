@@ -1,7 +1,5 @@
-<?php /* Template Name: All Prices */ 
-
-get_header();
-?>
+<?php /* Template Name: AllPricings */ 
+get_header(); ?>
 
 
 <main role="main" aria-label="Content">
