@@ -225,7 +225,7 @@ gulp.task('clean', function () {
   return gulp.src(['**/.sass-cache', '**/.DS_Store'], {
     read: false
   })
-  del.bind(null, ['.tmp', dist])
+  del.bind(null, [build])
     .pipe(ignore('node_modules/**'))
 });
 
