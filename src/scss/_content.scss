@@ -10,6 +10,16 @@
   min-height: 78vh;
 }
 
+#blog-header {
+  min-height: 20vh;
+  height: 400px;
+  background-size: cover;
+  background-attachment: scroll;
+  @media #{$grid-sm}{
+    height: 300px;
+  }
+}
+
 header.default {
   position: relative;
   background-color: $color;
