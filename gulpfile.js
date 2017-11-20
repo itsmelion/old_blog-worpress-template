@@ -222,11 +222,8 @@ gulp.task('clear', function () {
 });
 
 gulp.task('clean', function () {
-  return gulp.src(['**/.sass-cache', '**/.DS_Store'], {
-    read: false
-  })
-  del.bind(null, [build])
-    .pipe(ignore('node_modules/**'))
+  return del([build+'/**', '**/.sass-cache', '**/.DS_Store']).then(paths => {
+    console.log('Deleted files and folders:\n', paths.join('\n'));
 });
 
 gulp.task('buildFiles', function () {

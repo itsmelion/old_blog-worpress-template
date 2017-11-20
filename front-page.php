@@ -85,12 +85,6 @@ wp_reset_postdata();
       <img src="<?php echo $img['url'] ?>" />
       </a></li>          
     <?php endwhile; ?>
-    <?php while ( have_rows('news') ) : the_row(); ?>
-      <?php $img = get_sub_field('icon'); ?>
-      <li><a href="<?php the_sub_field('url'); ?>" title="<?php $img['title']; ?>">
-      <img src="<?php echo $img['url'] ?>" />
-      </a></li>          
-    <?php endwhile; ?>
   </ul>
 </section>
 <?php  else : endif; ?>

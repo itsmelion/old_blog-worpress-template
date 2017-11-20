@@ -32,8 +32,9 @@ endif;
 </style>
 
 <header id="blog-header" class="layout-column-center flex default this-header" role="banner">
-    <div class="flex layout-row-nowrap-center">
-		<h1><?php _e( 'Latest Posts', 'html5blank' ); ?></h1>
+    <div class="flex layout-column-nowrap-center">
+			<h1 style="text-transform: uppercase; font-weight: bold;">Planet Expat’s blog:</h1>
+			<h3>Raise your professional profile and fulfill your career potential</h3>
     </div>
 </header>
 
@@ -42,7 +43,6 @@ endif;
 	<main class="flex-grow" role="main" aria-label="Content">
 		
 		<div class="contain">
-			<h2 style="margin: 3rem 0; padding-left: 2rem;"><?php _e( 'Latest Posts', 'html5blank' ); ?></h2>
 			<section class="layout-column-nowrap-start blog-default">
 			<?php get_template_part('loop'); ?>
 			</section>
