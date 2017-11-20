@@ -224,6 +224,7 @@ gulp.task('clear', function () {
 gulp.task('clean', function () {
   return del([build+'/**', '**/.sass-cache', '**/.DS_Store']).then(paths => {
     console.log('Deleted files and folders:\n', paths.join('\n'));
+  });
 });
 
 gulp.task('buildFiles', function () {
