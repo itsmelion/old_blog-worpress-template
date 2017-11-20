@@ -5,7 +5,7 @@ get_header(); ?>
 <main role="main" aria-label="Content">
 
     <section class="text-center layout-column flex pricings-section">
-        <h2>Work Abroad Pricing</h2>
+        <h2>Work Abroad</h2>
 
         <div class="layout-row prices-container">
         <?php $my_query = new WP_Query( array( 'post_type' => 'pricing', 'category_name'  => 'work-abroad' ) );
@@ -45,7 +45,7 @@ get_header(); ?>
 
 
     <section class="text-center layout-column flex pricings-section">
-        <h2>Carrer Coaching Pricing</h2>
+        <h2>Career Coaching</h2>
 
         <div class="layout-row prices-container">
         <?php $my_query = new WP_Query( array( 'post_type' => 'pricing', 'category_name'  => 'coaching' ) );
@@ -85,12 +85,12 @@ get_header(); ?>
 
      
         <?php $my_query = new WP_Query( array( 'post_type' => 'pricing', 'category_name'  => 'packages' ) );
-        if ( $my_query->have_posts() ) : while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
+        if ( $my_query->have_posts() ) : ?>
         <section class="text-center layout-column flex pricings-section">
-        <h2>Combos</h2>
+        <h2>Career Coaching Packages</h2>
 
         <div class="layout-row prices-container">
-        <?php if(empty(get_field('highlighted'))):
+        <?php while ( $my_query->have_posts() ) : $my_query->the_post(); if(empty(get_field('highlighted'))):
             $highlight = 'normal';
         else:
             $highlight = 'highlight';
@@ -113,9 +113,11 @@ get_header(); ?>
             <?php the_field('call_to_action_text'); ?>
             </a>
             </article>
-                </div>
+                
+        <?php endwhile; ?>
+        </div>
         </section>
-        <?php endwhile; else : ?>
+        <?php else : ?>
         <?php endif; wp_reset_postdata(); ?>
 
     <?php // get_template_part('loop', 'pricing'); ?>

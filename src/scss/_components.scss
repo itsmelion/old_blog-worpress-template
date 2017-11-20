@@ -140,8 +140,8 @@ input[type="search"] {
 }
 
 .widget-area {
+    margin: 2rem;
     padding-top: 1rem;
-    margin-right: 1rem;
     width: 25%;
     @media #{$grid-sm} {
         width: auto;
