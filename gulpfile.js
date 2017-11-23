@@ -74,16 +74,6 @@ gulp.task('zip', () => {
 
 gulp.task('serve', () => {
   runsequence('build', () => {
-    browserSync.init({
-      proxy: appURL,
-      notify: false,
-      open: true,
-      port: 9000,
-      logLevel: "info",
-      logPrefix: project,
-      logConnections: false
-    });
-
     gulp.watch([
       source + '/**/*.html',
       dist + '/images/**/*',
@@ -95,6 +85,17 @@ gulp.task('serve', () => {
     gulp.watch(source + '/scripts/core/**/*.js', ['scripts']);
     gulp.watch(source + '/scripts/vendors/**/*.js', ['vendors']);
     gulp.watch(source + '/scripts/lazy/**/*.js', ['lazy']);
+
+    browserSync.init({
+      proxy: appURL,
+      notify: false,
+      open: false,
+      port: 9000,
+      logLevel: "info",
+      logPrefix: project,
+      logConnections: false
+    });
+
   });
 });
 
@@ -140,10 +141,6 @@ gulp.task('scripts', () => {
     .pipe(gulp.dest(dist + '/scripts'))
     .pipe(reload({
       stream: true
-    }))
-    .pipe(notify({
-      message: 'scripts complete',
-      onLast: true
     }));
 });
 
@@ -154,11 +151,7 @@ gulp.task('vendors', () => {
     .pipe(gulp.dest(dist + '/scripts'))
     .pipe(reload({
       stream: true
-    }))
-    .pipe(notify({
-      message: 'scripts complete',
-      onLast: true
-    }));;
+    }));
 });
 
 gulp.task('lazy', () => {

@@ -1,7 +1,7 @@
 <section class="text-center layout-column flex pricings-section">
   <h2>Pricings</h2>
 
-  <div class="layout-row-center">
+  <div class="layout-row">
 <?php $my_query = new WP_Query( array( 'post_type' => 'pricing', 'category_name'  => 'coaching' ) );
   if ( $my_query->have_posts() ) : while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
 

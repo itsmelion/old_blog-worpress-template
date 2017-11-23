@@ -8,6 +8,12 @@ body {
   font-family: 'Montserrat', 'Open Sans', sans-serif;
 }
 
+.contain{
+  @media #{$grid-sm}{
+    padding: 0 1rem;
+  }
+}
+
 a[href]:not(.button) {
   color: $main-color;
   &:hover {

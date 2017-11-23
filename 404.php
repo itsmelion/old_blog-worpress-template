@@ -1,15 +1,15 @@
 <?php get_header(); ?>
 
-	<main role="main" aria-label="Content">
+	<main class="flex-grow" role="main" aria-label="Content">
 		<!-- section -->
-		<section>
+		<section class="contain">
 
 			<!-- article -->
 			<article id="post-404">
 
 				<h1><?php _e( 'Page not found', 'html5blank' ); ?></h1>
 				<h2>
-					<a href="<?php echo home_url(); ?>"><?php _e( 'Return home?', 'html5blank' ); ?></a>
+					<a class="button" href="<?php echo home_url(); ?>"><?php _e( 'Return home?', 'html5blank' ); ?></h2>
 				</h2>
 
 			</article>
