@@ -68,7 +68,7 @@ endif;
 </section>
 
 <?php get_template_part('loop', 'pricing-abroad'); ?>
-<?php // include 'src/components/faq.php'; ?>
+<?php include 'src/components/faq.php'; ?>
 
 <?php include 'src/components/flex-internal.php'; ?>
 

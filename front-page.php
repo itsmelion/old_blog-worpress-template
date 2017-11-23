@@ -32,10 +32,10 @@ endif;
 
 <?php include 'src/components/sections.php'; ?>
 
-<section id="posts5" class="layout-row-between">
-  <h2>Tips</h2>
+<section id="posts5" class="layout-row-around">
+  <h2>Fulfil your career potential with our HR expert's advices</h2>
 <?php $the_query = new WP_Query( 'posts_per_page=3' );while ($the_query -> have_posts()) : $the_query -> the_post(); $img_url = get_the_post_thumbnail_url(get_the_ID(),'thumbnail'); ?>
-<article class="posts-home layout-row-forcenowrap">
+<article class="posts-home layout-row-nowrap">
     <span class="thumb" style="background-image: url('<?php echo $img_url; ?>');"></span>
     <div class="caption">
       <h3><?php the_title(); ?></h3>
