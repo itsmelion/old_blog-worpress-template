@@ -42,7 +42,7 @@ iframe.job-board {
   min-height: 30vh;
   article {
     width: 50%;
-    padding: 3rem;
+    padding: 2.5rem;
     @media #{$grid-sm} {
       width: 100%;
     }
@@ -104,7 +104,7 @@ iframe.job-board {
 .dual {
   article {
     width: 50%;
-    padding: 3rem;
+    padding: 2.5rem;
     h2 {
       margin-bottom: 2rem;
     }
@@ -120,7 +120,7 @@ iframe.job-board {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  min-height: 420px;
+  min-height: 320px;
 }
 
 .icon-section {
@@ -137,6 +137,7 @@ iframe.job-board {
     min-width: 24rem;
     // max-width: 25rem;
     width: 33%;
+    margin-bottom: 1rem;
     @media #{$grid-sm} {
       width: auto;
       max-width: 30rem;
@@ -200,14 +201,13 @@ iframe.job-board {
   }
   .icon-item {
     padding: 1.5rem;
-    min-width: 10rem;
-    max-width: 25rem;
+    min-width: 24rem;
     width: 33%;
     position: relative;
     margin-bottom: 1rem;
     @media #{$grid-sm} {
       width: auto;
-      max-width: 100%;
+      max-width: 30rem;
     }
     h3 {
       margin: 2rem 0 1rem 0;

@@ -1,5 +1,5 @@
 <?php if( have_rows('content-destinations') ): ?>
-<section class="contain layout-row-around-stretch-nowrap destinations-articles" >
+<section class="layout-row-around-stretch destinations-articles contain" >
 <?php while ( have_rows('content-destinations') ) : the_row(); $img = get_sub_field('icon');  ?>
       
       <article class="layout-column text-center icon-item">
